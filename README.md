@@ -1,31 +1,35 @@
 # LeetCode Workspace
 
-This mono-repo makes LeetCode practice easy. Scroll down to see my LeetCode journal - I fill this out when i practice.
+- This is a mono-repo for LeetCode practice.
+- Scroll down to see my LeetCode journal - I fill this out when i practice.
 
 ## Flashcards
 
 - I used 'tkinter' to create a flashcard app for practicing.
+- Flashcards are stored in the 'data/raw/qa.xlsx' file
 - Use the "add_flashcard.ipynb" notebook to add cards.
 - Run the bash shortcut below in the terminal to open the flashcard UI.
 ```bash
 flashcards
 ```
 
-## Other tools
+#### Load Relevant Sites
 
-- **Load Sites**: Used 'webbrowser' to pull up leetcode and chatgpt in the browser to begin working.
+- I used 'webbrowser' to pull up sites in the browser.
+- Run the bash shortcut below in the terminal to open leetcode and chatgpt.
 ```bash
 browser
 ```
 
-- **PEP8 Compliance**: Used 'Flake8' for checking code compliance with PEP8 standards. It helps maintain a clean and consistent code style across the project by enforcing formatting and style guidelines.
+#### Check PEP8 compliance
+
+- I used 'Flake8' to check code compliance with PEP8 standards.
+- Run the bash shortcut below in the terminal check the pep8 compliance of .py files.
 ```bash
 flake8 .
 ```
 
 ## Installation
-
-- **UV**: Used for package management and virtual environment creation. Configured to manage environments in a monorepo setup, ensuring consistency across the project.
 
 ```bash
 # Clone the repository
