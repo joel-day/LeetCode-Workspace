@@ -1,22 +1,27 @@
 # LeetCode Workspace
 
-This template builds a mono-repo with its own virtual environment designed to fascilitate LeetCode practice.
+This mono-repo makes LeetCode practice easy. Scroll down to see my LeetCode journal - I fill this out when i practice.
 
 ## Custom Tools
 
-- **tkinter**: Used to create a flashcard app for practicing. Use the "add_flashcard.ipynb" notebook to add cards
+- **Flashcards**: Used 'tkinter' to create a flashcard app for practicing. Use the "add_flashcard.ipynb" notebook to add cards. Run the bash shortcut below in the terminal to open the flashcard UI.
 ```bash
 flashcards
 ```
 
-- **webbrowser**: Used to pull up leetcode and chatgpt for working
+- **Load Sites**: Used 'webbrowser' to pull up leetcode and chatgpt in the browser to begin working.
 ```bash
 browser
 ```
 
+- **PEP8 Compliance**: Used 'Flake8' for checking code compliance with PEP8 standards. It helps maintain a clean and consistent code style across the project by enforcing formatting and style guidelines.
+```bash
+flake8 .
+```
+
 ## Installation
 
- On Github, manually create a new repository 'new-repo-name'
+- **UV**: Used for package management and virtual environment creation. Configured to manage environments in a monorepo setup, ensuring consistency across the project.
 
 ```bash
 # Clone the repository
@@ -39,16 +44,9 @@ uv sync
 uv sync --all-packages
 ```
 
-## Included Packages
+# Jounal
 
-- **UV**: Used for package management and virtual environment creation. Configured to manage environments in a monorepo setup, ensuring consistency across the project.
+- **04/09/24**:
 
-- **Pytest**: Configured to run tests and verify the correctness of code execution. It ensures that the codebase remains functional and that new changes don’t introduce unexpected behavior.
-```bash
-pytest
-```
-- **Flake8**: Used for checking code compliance with PEP8 standards. It helps maintain a clean and consistent code style across the project by enforcing formatting and style guidelines.
-```bash
-flake8 .
-```
 
+- **04/01/24**:
