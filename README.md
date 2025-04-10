@@ -2,12 +2,16 @@
 
 This mono-repo makes LeetCode practice easy. Scroll down to see my LeetCode journal - I fill this out when i practice.
 
-## Custom Tools
+## Flashcards
 
-- **Flashcards**: Used 'tkinter' to create a flashcard app for practicing. Use the "add_flashcard.ipynb" notebook to add cards. Run the bash shortcut below in the terminal to open the flashcard UI.
+- I used 'tkinter' to create a flashcard app for practicing.
+- Use the "add_flashcard.ipynb" notebook to add cards.
+- Run the bash shortcut below in the terminal to open the flashcard UI.
 ```bash
 flashcards
 ```
+
+## Other tools
 
 - **Load Sites**: Used 'webbrowser' to pull up leetcode and chatgpt in the browser to begin working.
 ```bash
