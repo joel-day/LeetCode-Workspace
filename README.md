@@ -3,7 +3,9 @@
 - This is a mono-repo for LeetCode practice.
 - Scroll down to see my LeetCode journal - I fill this out when i practice.
 
-## Flashcards
+## Custom CLI Commands
+
+#### Flashcards
 
 - I used 'tkinter' to create a flashcard app for practicing.
 - Flashcards are stored in the 'data/raw/qa.xlsx' file
