@@ -45,11 +45,12 @@ flake8 .
 ```
 
 # Solutions
-- For each solution
+- Solutions can be executed from the helpers.py and helper.js files respecitvely
+## For each solution
     1) Notes
-    2) Python & Javascript Solution
-    3) Time/Space complexity
-- Solutions are saved in the helpers.py and helper.js files
+    2) Python Solution
+    3) Javascript Solution
+    4) Time/Space Complexity
 
 ## Top Interview 150. 12. Integer to Roman
 ### Notes:
