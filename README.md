@@ -1,9 +1,11 @@
 # LeetCode Workspace
 
-- This is a mono-repo for LeetCode practice.
-- Scroll down for Leetcode Solutions
+This is a mono-repo for LeetCode practice.
 
-### Set-up
+- Part I outlines mono-repo set-up
+- Part II has solutions and notes Leetcode Solutions
+
+# Part I: Set-up
 
 ```bash
 # Clone the repository
@@ -43,7 +45,7 @@ flashcards
 ```bash
 flake8 .
 ```
-# Solutions
+# Part II: Solutions
 
 ![Solution Image](data/raw/sol.jpg)
 
