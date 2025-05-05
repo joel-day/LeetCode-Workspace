@@ -49,8 +49,60 @@ flake8 .
 ## For each problem:
     1) Python Solution
     2) Javascript Solution
-    3) Time/Space complexity
-    4) Notes
+    3) Time/Space complexity & Notes
+    NOTE: Solutions are saved in the helpers.py and helper.js files respectively. 
 
-- **04/09/24**:
+- **Top Interview 150. 12. Integer to Roman**:
+```python
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        roman_dict = [
+            (1000, 'M'), (900, 'CM'),
+            (500, 'D'), (400, 'CD'),
+            (100, 'C'), (90, 'XC'),
+            (50, 'L'), (40, 'XL'),
+            (10, 'X'), (9, 'IX'),
+            (5, 'V'), (4, 'IV'),
+            (1, 'I')
+        ]
 
+        results = []
+
+        for value, symbol in roman_dict:
+            while num >= value:
+                results.append(symbol)
+                num -= value
+
+        return ''.join(results)
+```
+```javascript
+var intToRoman = function(num) {
+    const values = [
+        [1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
+        [100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
+        [10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]
+    ];
+    let result = '';
+    for (const [value, symbol] of values) {
+        while (num >= value) {
+            result += symbol;
+            num -= value;
+        }
+    }
+    return result;
+};
+```
+
+ - Time Complexity: ( O(n) ) — Depends on the number size.
+ - Space Complexity: ( O(1) ) — Output grows linearly with digit size.
+
+### Notes:
+
+##### Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
+
+
+- **Top Interview 150**:
