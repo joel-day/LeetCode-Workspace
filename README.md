@@ -44,10 +44,12 @@ flashcards
 flake8 .
 ```
 # Solutions
-## All solutions pulled from the 'Top Interview 150' LeetCode playlist
+
 ![Solution Image](data/raw/sol.jpg)
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+All problems found in the 'Top Interview 150' LeetCode playlist. For each problem I provide...
       
 1) Notes
 2) Python Solution
