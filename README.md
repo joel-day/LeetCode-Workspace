@@ -1,37 +1,9 @@
 # LeetCode Workspace
 
 - This is a mono-repo for LeetCode practice.
-- Scroll down to see my LeetCode journal - I fill this out when i practice.
+- Scroll down for Leetcode Solutions
 
-## Custom CLI Commands
-
-#### Flashcards
-
-- I used 'tkinter' to create a flashcard app for practicing.
-- Flashcards are stored in the 'data/raw/qa.xlsx' file
-- Use the "add_flashcard.ipynb" notebook to add cards.
-- Run the bash shortcut below in the terminal to open the flashcard UI.
-```bash
-flashcards
-```
-
-#### Load Relevant Sites
-
-- I used 'webbrowser' to pull up sites in the browser.
-- Run the bash shortcut below in the terminal to open leetcode and chatgpt.
-```bash
-browser
-```
-
-#### Check PEP8 compliance
-
-- I used 'Flake8' to check code compliance with PEP8 standards.
-- Run the bash shortcut below in the terminal check the pep8 compliance of .py files.
-```bash
-flake8 .
-```
-
-## Installation
+#### Clone and Set-up Mono-repo
 
 ```bash
 # Clone the repository
@@ -54,9 +26,31 @@ uv sync
 uv sync --all-packages
 ```
 
-# Jounal
+#### Flashcards
+
+- I use 'tkinter' to create a flashcard app for practicing.
+- Flashcards are stored in the 'data/raw/qa.xlsx' file
+- Use the "add_flashcard.ipynb" notebook to add cards.
+- Run the bash shortcut below in the terminal to open the flashcard UI.
+```bash
+flashcards
+```
+
+#### Check PEP8 compliance
+
+- I use 'Flake8' to check code compliance with PEP8 standards.
+- Run the bash shortcut below in the terminal check the pep8 compliance of .py files.
+```bash
+flake8 .
+```
+
+# Solutions
+
+## For each problem:
+    1) Python Solution
+    2) Javascript Solution
+    3) Time/Space complexity
+    4) Notes
 
 - **04/09/24**:
 
-
-- **04/01/24**:
