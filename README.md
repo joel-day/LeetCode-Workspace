@@ -5,7 +5,7 @@ This is a mono-repo for LeetCode practice.
 - Part I outlines mono-repo set-up
 - Part II has solutions and notes Leetcode Solutions
 
-# Part I: Set-up
+## Part I: Set-up
 
 ```bash
 # Clone the repository
@@ -45,7 +45,7 @@ flashcards
 ```bash
 flake8 .
 ```
-# Part II: Solutions
+## Part II: Solutions
 
 ![Solution Image](data/raw/sol.jpg)
 
@@ -58,11 +58,11 @@ All problems found in the 'Top Interview 150' LeetCode playlist. For each proble
 3) Javascript Solution
 4) Time/Space Complexity
 
-## Top Interview 150. 12. Integer to Roman
-### Notes:
+### 12. Integer to Roman
+#### Notes:
 - Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
 
-#### Python 
+#### Python Solution: 
 ```python
 class Solution(object):
     def intToRoman(self, num):
@@ -89,7 +89,7 @@ class Solution(object):
 
         return ''.join(results)
 ```
-#### Javascript
+#### Javascript Solution:
 ```javascript
 var intToRoman = function(num) {
     const values = [
@@ -107,9 +107,9 @@ var intToRoman = function(num) {
     return result;
 };
 ```
-#### Complexity
+#### Complexity:
  - Time Complexity: ( O(n) ) — Depends on the number size.
  - Space Complexity: ( O(1) ) — Output grows linearly with digit size
 
 
-## Top Interview 150. 58. Length of Last Word
+### 58. Length of Last Word
