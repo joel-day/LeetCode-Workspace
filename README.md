@@ -25,7 +25,7 @@ uv sync
 # (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
 uv sync --all-packages
 ```
-### Custom CLI Scripts
+### Custom CLI Commands
 #### Flashcards
 
 - I use 'tkinter' to create a flashcard app for practicing.
@@ -45,10 +45,11 @@ flake8 .
 ```
 
 # Solutions
-    1) Python Solution
-    2) Javascript Solution
-    3) Time/Space complexity & Notes
-    4) Solutions are saved in the helpers.py and helper.js files respectively. 
+- For each solution
+    1) Notes
+    2) Python & Javascript Solution
+    3) Time/Space complexity
+- Solutions are saved in the helpers.py and helper.js files
 
 ## Top Interview 150. 12. Integer to Roman
 ### Notes:
