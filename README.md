@@ -47,18 +47,16 @@ flake8 .
 ```
 # Part II: Solutions
 
-For each problem I provide...
+![Solution Image](data/raw/sol.jpg)
+
+Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+For each problem I provide the below. All problems were found in the 'Top Interview 150' LeetCode playlist.
       
 1) Notes
 2) Time/Space Complexity
 3) Python Solution
 4) Javascript Solution
-
-All problems were found in the 'Top Interview 150' LeetCode playlist.
-
-![Solution Image](data/raw/sol.jpg)
-
-Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 
 ## 12. Integer to Roman
