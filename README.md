@@ -64,8 +64,8 @@ For each problem I provide the below. All problems were found in the 'Top Interv
 - Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
 
 #### Complexity:
- - Time Complexity: ( O(n) ) — Depends on the number size.
- - Space Complexity: ( O(1) ) — Output grows linearly with digit size
+ - Time Complexity: ( O(n) ) — Linear growth dependent on the input number size.
+ - Space Complexity: ( O(n) ) — Linear growth dependent on the input number size.
 
 #### Python Solution: 
 ```python
