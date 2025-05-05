@@ -2,8 +2,8 @@
 
 This is a mono-repo for LeetCode practice.
 
-- Part I outlines mono-repo set-up
-- Part II has solutions and notes Leetcode Solutions
+- Part I outlines the mono-repo set-up
+- Part II contains my LeetCode solutions w/ notes
 
 ## Part I: Set-up
 
