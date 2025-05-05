@@ -3,7 +3,7 @@
 - This is a mono-repo for LeetCode practice.
 - Scroll down for Leetcode Solutions
 
-#### Clone and Set-up Mono-repo
+### Set-up
 
 ```bash
 # Clone the repository
@@ -25,7 +25,7 @@ uv sync
 # (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
 uv sync --all-packages
 ```
-
+### Custom CLI Scripts
 #### Flashcards
 
 - I use 'tkinter' to create a flashcard app for practicing.
@@ -51,6 +51,8 @@ flake8 .
     4) Solutions are saved in the helpers.py and helper.js files respectively. 
 
 ## Top Interview 150. 12. Integer to Roman
+### Notes:
+- Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
 
 #### Python 
 ```python
@@ -97,10 +99,9 @@ var intToRoman = function(num) {
     return result;
 };
 ```
-#### Complexity and Notes
+#### Complexity
  - Time Complexity: ( O(n) ) — Depends on the number size.
  - Space Complexity: ( O(1) ) — Output grows linearly with digit size
- - Notes: Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
 
 
 ## Top Interview 150. 58. Length of Last Word
