@@ -54,7 +54,7 @@ For each problem I provide...
 3) Python Solution
 4) Javascript Solution
 
-All problems found in the 'Top Interview 150' LeetCode playlist.
+All problems were found in the 'Top Interview 150' LeetCode playlist.
 
 ![Solution Image](data/raw/sol.jpg)
 
