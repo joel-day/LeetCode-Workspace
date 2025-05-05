@@ -44,13 +44,15 @@ flashcards
 flake8 .
 ```
 
+Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+      
+
+
 # Solutions
-- Solutions can be executed from the helpers.py and helper.js files respecitvely
-## For each solution
-    1) Notes
-    2) Python Solution
-    3) Javascript Solution
-    4) Time/Space Complexity
+1) Notes
+2) Python Solution
+3) Javascript Solution
+4) Time/Space Complexity
 
 ## Top Interview 150. 12. Integer to Roman
 ### Notes:
