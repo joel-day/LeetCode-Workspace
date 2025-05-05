@@ -45,14 +45,14 @@ flake8 .
 ```
 
 # Solutions
-
-## For each problem:
     1) Python Solution
     2) Javascript Solution
     3) Time/Space complexity & Notes
-    NOTE: Solutions are saved in the helpers.py and helper.js files respectively. 
+    4) Solutions are saved in the helpers.py and helper.js files respectively. 
 
-- **Top Interview 150. 12. Integer to Roman**:
+## Top Interview 150. 12. Integer to Roman
+
+#### Python 
 ```python
 class Solution(object):
     def intToRoman(self, num):
@@ -79,6 +79,7 @@ class Solution(object):
 
         return ''.join(results)
 ```
+#### Javascript
 ```javascript
 var intToRoman = function(num) {
     const values = [
@@ -96,13 +97,10 @@ var intToRoman = function(num) {
     return result;
 };
 ```
-
+#### Complexity and Notes
  - Time Complexity: ( O(n) ) — Depends on the number size.
- - Space Complexity: ( O(1) ) — Output grows linearly with digit size.
-
-### Notes:
-
-##### Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
+ - Space Complexity: ( O(1) ) — Output grows linearly with digit size
+ - Notes: Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
 
 
-- **Top Interview 150**:
+## Top Interview 150. 58. Length of Last Word
