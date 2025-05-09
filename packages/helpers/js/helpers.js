@@ -15,3 +15,11 @@ export function intToRoman(num) {
     return result;
   }
   
+export class Solution {
+    lengthOfLastWord(s) {
+        s = s.trimEnd();
+        const lastSpaceIndex = s.lastIndexOf(' ');
+        const lastWord = lastSpaceIndex === -1 ? s : s.slice(lastSpaceIndex + 1);
+        return lastWord.length;
+    }
+}

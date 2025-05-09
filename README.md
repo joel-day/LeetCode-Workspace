@@ -115,3 +115,39 @@ var intToRoman = function(num) {
 
 
 ## 58. Length of Last Word
+#### Notes:
+- rsplit and rstrip begin at the end of the list - minimizing processing requirments
+
+#### Complexity:
+- Time Complexity: ( O(n) ) — Depends on the string size (characters).
+- Space Complexity: ( O(n) ) — Depends on the string size (characters).
+
+#### Python Solution:     
+```python
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        s = s.rstrip()
+
+        last_word = s.rsplit(' ', 1)[-1]
+
+        word_length = len(last_word)
+
+
+        return word_length
+```
+#### Javascript Solution:
+```javascript
+    var lengthoflastword = function(s) {
+        s = s.trimEnd();
+
+        const lastSpaceIndex = s.lastIndexOf(' ');
+        const lastword = lastSpaceIndex === -1 ? s : s.slice(lastSpaceIndex + 1);
+
+        return lastword.length;
+    }
+```
