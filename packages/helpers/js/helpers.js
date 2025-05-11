@@ -22,4 +22,26 @@ export class Solution {
         const lastWord = lastSpaceIndex === -1 ? s : s.slice(lastSpaceIndex + 1);
         return lastWord.length;
     }
+
+
+    longestCommonPrefix(strs = []) {
+        let longest_prefix = '';
+
+        if (strs.length === 0) return longest_prefix;
+
+        for (let i = 0; i < strs[0].length; i++) {
+
+            const prefix = strs[0].substring(0, i+1);
+
+            for (let j = 0; j < strs.length; j++) {
+                if (strs[j].substring(0, i+1) !== prefix) {
+                    return longest_prefix;
+                }
+            }
+
+        longest_prefix = prefix;
+        }
+
+        return longest_prefix;
+    }
 }

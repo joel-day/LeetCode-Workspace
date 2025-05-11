@@ -2,15 +2,18 @@ import tkinter as tk
 import random
 import pandas as pd
 
+
 def load_flashcards(file_path):
     df = pd.read_excel(file_path)
     return dict(zip(df['Question'], df['Answer']))
+
 
 # Path to your Excel file
 file_path = 'file_path'
 
 # Load flashcards
 flashcards = load_flashcards("data/raw/qa.xlsx")
+
 
 class FlashcardApp:
     def __init__(self, master):
@@ -51,5 +54,5 @@ class FlashcardApp:
 
 def open_flashcards():
     root = tk.Tk()
-    app = FlashcardApp(root)
+    FlashcardApp(root)
     root.mainloop()

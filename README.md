@@ -59,7 +59,7 @@ For each problem I provide the below. All problems were found in the 'Top Interv
 4) Javascript Solution
 
 
-## 12. Integer to Roman
+# 12. Integer to Roman
 #### Notes:
 - Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
 
@@ -114,7 +114,7 @@ var intToRoman = function(num) {
 ```
 
 
-## 58. Length of Last Word
+# 58. Length of Last Word
 #### Notes:
 - rsplit and rstrip begin at the end of the list - minimizing processing requirments
 
@@ -150,4 +150,68 @@ class Solution(object):
 
         return lastword.length;
     }
+```
+
+
+# 14. Longest Common Prefix
+##### Notes:
+- To solve this problem i loop through each possible prefix from smallest to largest using the first word in the list. The i loop through each other word in the list to see if the prefix matched. The program exits when it fails to match and return the current longest prefix that match all the words in the list.
+- Using the first word avoids sorting the list
+
+##### Complexity:
+ - Time Complexity: ( O(n*m) )
+ - Space Complexity: ( O(n) )
+
+##### Python Solution: 
+```python
+class Solution(object):
+    def longestCommonPrefix(self, strs: list = []) -> str:
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+
+        longest_prefix = ''
+
+        # Loop over each letter in the first word
+        for i in range(0, len(strs[0])):
+            #  Prefix is a str = to the first letter through the current letter
+            prefix = strs[0][0:i+1]
+
+            # Loop over the remaining words
+            for j in range(1, len(strs)):
+
+                # See if the word shares the prefix
+                if strs[j][0:i+1] != prefix:
+
+                    # Exit the loop if it doesnt match
+                    return longest_prefix
+            
+            # If if gets through each word, update the longest_prefix string
+            longest_prefix = prefix
+
+        return longest_prefix
+```
+##### Javascript Solution:
+```javascript
+longestCommonPrefix(strs = []) {
+    let longest_prefix = '';
+
+    if strs.length === 0 return longest_prefix;
+
+    for (let i = 0; i < strs[0].length; i++) {
+
+        const prefix = strs[0].substring(0, i+1);
+
+        for (let j = 0; j < strs.length; j++) {
+            if (strs[j].substring(0, i+1) !== prefix) {
+                return longest_prefix;
+            }
+        }
+
+    longest_prefix = prefix;
+    }
+
+    return longestPrefix;
+}
 ```

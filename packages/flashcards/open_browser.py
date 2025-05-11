@@ -1,5 +1,6 @@
 import webbrowser
 
+
 def leet_gpt_browser():
     # Replace this with your link
     url = 'https://leetcode.com/studyplan/top-interview-150/'
