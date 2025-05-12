@@ -13,21 +13,23 @@ To setup for yourself, see the 'Workspace Set-up' section at the bottom of this 
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- For each solution, I provide the Intuition, Approach, Complexity, and Code.
+- **For each solution, I provide the Intuition, Approach, Complexity, and Code.**
 
-- I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
+- I try to go beyond just finding a solution that works and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when necessary. 
 
-- I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
+- I prioritize understanding the logic over memorization of specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
-- I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
+- I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
 
-SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
+- SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode.
 
 # 12. Integer to Roman
 #### Intuition:
-The goal is to convert an integer to roman numerals. First, create a list pairing each unique roman numeral and its value - sorted from highest to lowest. Then, iterate throught this list, if the integer is greater than the value of the roman numeral, add the roman numeral to the output string and subtract the value of the roman numeral from the interger. Continue this process until the integer is 0. 
-Note: To avoid creating new varibles, the input integer is reused by subtracting the value of each output roman numeral as we go.
-Note: Use a list as opposed to a dict for the roman numerals. Dictionary iteration order is not guaranteed. Because the order is importaint, use a list.
+The goal is to convert an integer to roman numerals. First, create a list pairing each unique roman numeral and its value - sorted from highest to lowest. Then, iterate through this list, if the integer is greater than the value of the roman numeral, add the roman numeral to the output string and subtract the value of the roman numeral from the integer. Continue this process until the integer is 0.
+
+Note: To avoid creating new variables, the input integer is reused by subtracting the value of each output roman numeral as we go.
+
+Note: Use a list as opposed to a dict for the roman numerals. Dictionary iteration order is not guaranteed. Because the order is important, use a list.
 
 #### Approach:
 - Create a list of each unique pair of roman numerals and their values, ordered from largest to smallest.
@@ -87,11 +89,12 @@ var intToRoman = function(num) {
 
 # 58. Length of Last Word
 #### Intuition:
-The goal here is find the length of the last word. To do this, first 'clean up' any extra whitespaces in the string, then isolate the word by splitting on the last white space. Once the word is isolated into its own variable, simply count the letters with len().  
+The goal here is to find the length of the last word. To do this, first 'clean up' any extra white spaces in the string, then isolate the word by splitting on the last white space. Once the word is isolated into its own variable, simply count the letters with len().  
+
 Note: To avoid processing the entire sting, 'rsplit' and 'rstrip' are used to begin at the end of the list.
 
 #### Approach:
-- Remove the leading and trailing whitespacves with 'rstrip'
+- Remove the leading and trailing whitespaces with 'rstrip'
 - Use rsplit(' ', 1)[-1] to begin splitting from the end, split only once, and save the last chunk as a variable (last_word). 
 - Use len() to get the length of the word
 
@@ -130,12 +133,13 @@ class Solution(object):
 
 # 14. Longest Common Prefix
 #### Intuition:
-The goal is the find the longest common prefix across ALL the words in a list. To do this, compare the first word to the remaining words to see if they match, beginning with the first letter, then the first two letters, ect. to find the longest common prefix. At each iteration, see if all the other words begin with the same prefix, if so, the 'longest_prefix' varible is updated, if not, the current 'longest_prefix' varible is returned. 
+The goal is to find the longest common prefix across ALL the words in a list. To do this, compare the first word to the remaining words to see if they match, beginning with the first letter, then the first two letters, ect. to find the longest common prefix. At each iteration, see if all the other words begin with the same prefix, if so, the 'longest_prefix' variable is updated, if not, the current 'longest_prefix' variable is returned. 
+
 Note: Using the first word to iterate over avoids needing to sort the list.
 
 #### Approach:
 - Iterate over each incrementing prefix in the first word.
-- For each prefix, iterate over all remaining words to see if they contains the prefix. If not, it returns the current longest prefix, if so it updates the longest_prefix variable and repeats the process with the next (longer) prefix.
+- For each prefix, iterate over all remaining words to see if they contain the prefix. If not, it returns the current longest prefix, if so, it updates the ‘longest_prefix’ variable and repeats the process with the next (longer) prefix.
 
 #### Complexity:
  - Time Complexity: ( O(n*m) )
@@ -196,13 +200,14 @@ longestCommonPrefix(strs = []) {
 
 # 151. Reverse Words in a String
 #### Intuition:
-The goal is to return all the words in the list without the extra whitespaces and in reverse order; this is in three steps. First remove leading and trailing whitespaces, then split the string at each internal space and return non-empty words as a list in reverse order, then rejoin these words into a string. 
+The goal is to return all the words in the list without the extra whitespaces and in reverse order; this is in three steps. First remove leading and trailing whitespaces, then split the string at each internal space and return non-empty words as a list in reverse order, then rejoin these words into a string.
+
 Note: Use [::-1] to reverse sort the list without creating an additional variable. 
 
 #### Approach:
 - Use 'strip' to remove leading and trailing spaces.
-- Use 'split()[::-1]' to create a list of words in reverse order. The trick is to sort by '-1' to easily satisfy the reverse order constraint. This will also handle any repeated spaces between words.
-- Simple use join with ' ' to create the output string. 
+- Use 'split()[::-1]' to create a list of words in reverse order. The trick is to sort by '-1' to easily satisfy the reverse order constraint. This will also handle any repeated space between words.
+- Simply use join with ' ' to create the output string. 
 
 #### Complexity:
  - Time Complexity: ( O(n) )
