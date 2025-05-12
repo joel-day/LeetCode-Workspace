@@ -1,6 +1,6 @@
 # LeetCode Workspace
 
-This is a mono-repo for LeetCode practice. Want to use this setup yourself? There is a setup section at the end to help.
+This is a mono-repo for LeetCode practice. Want to use this setup yourself? Setup instructions at the end of the Readme. 
 
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
@@ -9,20 +9,15 @@ This is a mono-repo for LeetCode practice. Want to use this setup yourself? Ther
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
 
 - To ensure pep8 compliance, I add the python solution to the helper.py file in the 'helpers' folder, and use flake8 from the terminal to find flags. 
-#### Check PEP8 compliance
-
-- I use 'Flake8' to check code compliance with PEP8 standards.
-- Run the bash shortcut below in the terminal check the pep8 compliance of .py files.
 ```bash
 flake8 .
 ```
 
 - I add all of code needed to solve a problem, that i didnt already know, into notecards to ensure i'll know them next time.
-#### Flashcards
-- I use 'tkinter' to create a flashcard app for practicing.
-- Flashcards are stored in the 'data/raw/qa.xlsx' file
-- Use the "add_flashcard.ipynb" notebook to add cards.
-- Run the bash shortcut below in the terminal to open the flashcard UI.
+    - I use 'tkinter' to create a flashcard app for practicing.
+    - Flashcards are stored in the 'data/raw/qa.xlsx' file
+    - Use the "add_flashcard.ipynb" notebook to add cards.
+    - Run the bash shortcut below in the terminal to open the flashcard UI.
 ```bash
 flashcards
 ``` 
