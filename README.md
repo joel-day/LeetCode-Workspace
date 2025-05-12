@@ -1,12 +1,10 @@
 # LeetCode Workspace
 
-This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
+**This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.**
  
-Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
+Want to use this mono-repo setup for yourself? See the 'Workspace Set-up' section at the bottom of this ReadMe. 
 
-My solutions with explanations are in the 'Solutions' section below. 
-
-# Solutions
+# My Solutions
 
 ![Solution Image](data/raw/sol.jpg)
 
