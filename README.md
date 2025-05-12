@@ -1,25 +1,10 @@
 # LeetCode Workspace
 
 This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
+ 
+Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
 
 My solutions with explanations are in the 'Solutions' section below. 
-
-## Flashcards
-- Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
-- Use the "add_flashcard.ipynb" notebook to add cards.
-- Run the bash shortcut below in the terminal to open the flashcard UI.
-```bash
-flashcards
-``` 
-
-## Bash Scripts
-- 'flake8 .'  Use for:   PEP8 compliance.  Python solutions are added to 'helpers/helper.py' to use with flake8. 
-- 'browser'   Use for:   Saving time.      Loads ChatGPT and LeetCode in the browser. 
-```bash
-flake8 .
-browser
-``` 
-Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
 
 # Solutions
 
@@ -264,4 +249,19 @@ uv sync
 
 # (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
 uv sync --all-packages
+```
+## Flashcards
+- Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
+- Use the "add_flashcard.ipynb" notebook to add cards.
+- Run the bash shortcut below in the terminal to open the flashcard UI.
+```bash
+flashcards
+``` 
+
+## Bash Scripts
+- 'flake8 .'  Use for:   PEP8 compliance.  Python solutions are added to 'helpers/helper.py' to use with flake8. 
+- 'browser'   Use for:   Saving time.      Loads ChatGPT and LeetCode in the browser. 
+```bash
+flake8 .
+browser
 ```
