@@ -1,8 +1,6 @@
 # LeetCode Workspace
 
-This is a mono-repo for LeetCode practice.
-
-- Setup section at the end outlines the mono-repo set-up
+This is a mono-repo for LeetCode practice. There is a setup section at the end.
 
 ### Custom CLI Commands
 #### Flashcards
@@ -22,13 +20,14 @@ flashcards
 ```bash
 flake8 .
 ```
-# Part II: Solutions
+# Solutions
 
 ![Solution Image](data/raw/sol.jpg)
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-For each problem I provide the below. All problems were found in the 'Top Interview 150' LeetCode playlist.
+- All problems were found in the 'Top Interview 150' LeetCode playlist.
+- For each problem I provide...
       
 1) Notes
 2) Time/Space Complexity
