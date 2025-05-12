@@ -1,6 +1,6 @@
 # LeetCode Workspace
 
-Welcome to my custom mono-repo for practicing LeetCode, which doubles as a journal for my solutions.
+**Welcome to my custom mono-repo for practicing LeetCode, which doubles as a journal for my solutions.**
 
 The repo includes a custom flashcard UI and bash scripts for taking practice to the next level. 
 
