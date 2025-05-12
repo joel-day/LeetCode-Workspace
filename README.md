@@ -4,7 +4,7 @@ This is a custom mono-repo for practicing LeetCode which includes flashcards and
 
 My solutions with explanations are in the 'Solutions' section below. 
 
-Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
+Want to use this mono-repo setup for yourself? See the 'Set-up' section below. 
 
 ## Flashcards
 - Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
@@ -21,6 +21,28 @@ flashcards
 flake8 .
 browser
 ``` 
+# Set-up
+
+```bash
+# Clone the repository
+git clone https://github.com/joel-day/LeetCode-Workspace.git
+
+# Move into the local repository
+cd LeetCode-Workspace
+
+# Create the virtual environment
+uv venv .venv
+
+# Activate the virtual environment
+source .venv\bin\activate # Mac/Linux
+.venv\Scripts\activate   # Windows
+
+# Sync environment based on dependencies in top-level pyproject.toml file
+uv sync
+
+# (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
+uv sync --all-packages
+```
 
 # Solutions
 
@@ -243,27 +265,4 @@ reverseWords(s) {
 
     return reverse_string;
 }
-```
-
-# Set-up
-
-```bash
-# Clone the repository
-git clone https://github.com/joel-day/LeetCode-Workspace.git
-
-# Move into the local repository
-cd LeetCode-Workspace
-
-# Create the virtual environment
-uv venv .venv
-
-# Activate the virtual environment
-source .venv\bin\activate # Mac/Linux
-.venv\Scripts\activate   # Windows
-
-# Sync environment based on dependencies in top-level pyproject.toml file
-uv sync
-
-# (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
-uv sync --all-packages
 ```
