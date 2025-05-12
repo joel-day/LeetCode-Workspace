@@ -25,9 +25,13 @@ SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by Lee
 
 # 12. Integer to Roman
 #### Intuition:
-- Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
+- To avoid creating new varibles, the input integer is reused by subtracting the value of each output roman numeral as we go.
+- Use a list as opposed to a dict for the roman numerals. Dictionary iteration order is not guaranteed. Because the order is importaint, use a list.
 
 #### Approach:
+- Create a list of each unique pair of roman numerals and their values, ordered from largest to smallest.
+- Iterate through the list, if the target integer is greater than the value of the roman numeral, append that numeral to the results list and subtract the value of that numeral from the target integer.
+- Advance to the next (lower) roman numeral only when the input is less than the numeral value. 
 
 #### Complexity:
  - Time Complexity: ( O(n) ) — Linear growth dependent on the input number size.
@@ -42,7 +46,7 @@ class Solution(object):
         :type num: int
         :rtype: str
         """
-        roman_dict = [
+        roman_list = [
             (1000, 'M'), (900, 'CM'),
             (500, 'D'), (400, 'CD'),
             (100, 'C'), (90, 'XC'),
@@ -54,7 +58,7 @@ class Solution(object):
 
         results = []
 
-        for value, symbol in roman_dict:
+        for value, symbol in roman_list:
             while num >= value:
                 results.append(symbol)
                 num -= value
@@ -82,9 +86,13 @@ var intToRoman = function(num) {
 
 # 58. Length of Last Word
 #### Intuition:
-- rsplit and rstrip begin at the end of the list - minimizing processing requirments
+- The goal here is to find a way to avoid processing the entire sting, and focus only on wehat matters (the end). 
+- 'rsplit' and 'rstrip' begin at the end of the list - minimizing processing requirments
 
 #### Approach:
+- Remove the leading and trailing whitespacves with 'rstrip'
+- Use rsplit(' ', 1)[-1] to begin splitting from the end, split only once, and save the last chunk as a variable (last_word). 
+- Use len() to get the length of the word
 
 #### Complexity:
 - Time Complexity: ( O(n) ) — Depends on the string size (characters).
@@ -119,14 +127,14 @@ class Solution(object):
     }
 ```
 
-
 # 14. Longest Common Prefix
 #### Intuition:
-- rsplit and rstrip begin at the end of the list - minimizing processing requirments
+- Using the first word, i iterate over each prefix and check if ALL of the other words in the list contain the same prefix. If all the other words have the same prefix, the 'longest_prefix' varible is updated to show that, and i add a letter to the prefix. The code breaks when another word fails to match, then the current output string is returned. 
+- Using the first word avoids needing to sort the list.
 
 #### Approach:
-- To solve this problem i loop through each possible prefix from smallest to largest using the first word in the list. Then i loop through each other word in the list to see if the prefix matched. The program exits when it fails to match and returns the current longest prefix that matched all the words in the list.
-- Using the first word avoids sorting the list
+- Iterate over each prefix in the first word
+- For each prefix, iterate over all remaining words to see if they contains the prefix. If not, it returns the current longest prefix, if so it updates the longest_prefix variable and repeats the process with the next (longer) prefix)
 
 #### Complexity:
  - Time Complexity: ( O(n*m) )
@@ -185,15 +193,14 @@ longestCommonPrefix(strs = []) {
 }
 ```
 
-
 # 151. Reverse Words in a String
 #### Intuition:
-
+- Use [::-1] to reverse sort the list without creating an additional variable. 
 
 #### Approach:
-- To handle spaces at the beginning and end use strip. 
-- Split ignores extra spaces in between words
-- [::-1] ensures these words are returned in reverse order
+- Use 'strip' to remove leading and trailing spaces.
+- Use 'split()[::-1]' to create a list of words in reverse order. The trick is to sort by '-1' to easily satisfy the reverse order constraint. This will also handle any repeated spaces between words.
+- Simple use join with ' ' to create the output string. 
 
 #### Complexity:
  - Time Complexity: ( O(n) )

@@ -35,7 +35,7 @@ class Solution(object):
         word_length = len(last_word)
 
         return word_length
-    
+
     def longestCommonPrefix(self, strs: list = []) -> str:
         """
         :type strs: List[str]
@@ -47,22 +47,22 @@ class Solution(object):
         # Loop over each letter in the first word
         for i in range(0, len(strs[0])):
             #  Prefix is a str = to the first letter through the current letter
-            prefix = strs[0][0:i+1]
+            prefix = strs[0][0:i + 1]
 
             # Loop over the remaining words
             for j in range(1, len(strs)):
 
                 # See if the word shares the prefix
-                if strs[j][0:i+1] != prefix:
+                if strs[j][0:i + 1] != prefix:
 
                     # Exit the loop if it doesnt match
                     return longest_prefix
-            
+
             # If if gets through each word, update the longest_prefix string
             longest_prefix = prefix
 
         return longest_prefix
-    
+
     def reverseWords(self, s):
         """
         :type s: str

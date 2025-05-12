@@ -63,7 +63,7 @@ markers = [
 # Config Flake8 for enforcing coding style conventions
 # Ignore specific warnings (https://pep8.readthedocs.io/en/latest/intro.html#error-codes)
 [tool.flake8]
-max-line-length = 88
+max-line-length = 110
 ignore = []
 select = ["E", "W", "F"]  # Select errors, warnings, and flake8-futures
 exclude = [
