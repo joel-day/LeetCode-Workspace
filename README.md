@@ -3,8 +3,7 @@
 This is a custom mono-repo for LeetCode practice which includes flashcards and custom bash scripts.
 
 ## Flashcards
-- I use 'tkinter' to create a flashcard app for practicing.
-- Flashcards are stored in the 'data/raw/qa.xlsx' file
+- Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
 - Use the "add_flashcard.ipynb" notebook to add cards.
 - Run the bash shortcut below in the terminal to open the flashcard UI.
 ```bash
@@ -12,10 +11,12 @@ flashcards
 ``` 
 
 ## Bash Scripts
-- Python solutions are added to 'helpers/helper.py' to use with flake8. 
-- 'browser' loads ChatGPT and LeetCode in the browser.
+- PEP8 compliance: Python solutions are added to 'helpers/helper.py' to use with flake8. 
 ```bash
 flake8 .
+``` 
+- Save time: Load ChatGPT and LeetCode in the browser. 
+```bash
 browser
 ``` 
 
@@ -25,19 +26,15 @@ browser
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
+- For each solution, I provide 1) Intuition 2) Approach 3) Complexity 4) Code
+
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
 - I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
 
-- SOURCE: 'Top Interview 150' LeetCode list. For each solution, I provide the...
-      
-1) Intuition
-2) Approach
-3) Complexity
-4) Code
-
+- SOURCE: 'Top Interview 150' LeetCode list. 
 
 # 12. Integer to Roman
 #### Intuition:
