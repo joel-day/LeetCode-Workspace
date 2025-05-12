@@ -2,6 +2,10 @@
 
 This is a custom mono-repo for LeetCode practice which includes flashcards and custom bash scripts.
 
+I add my solutions with explanations in the Solutions section below. 
+
+Want to use this mono-repo setup for yourself? See the Setup section at the bottom of the ReadMe. 
+
 ## Flashcards
 - Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
 - Use the "add_flashcard.ipynb" notebook to add cards.
