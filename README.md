@@ -4,7 +4,7 @@ This is a custom mono-repo for practicing LeetCode which includes flashcards and
 
 My solutions with explanations are in the 'Solutions' section below. 
 
-Want to use this mono-repo setup for yourself? See the 'Set-up' section below. 
+Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
 
 ## Flashcards
 - Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
@@ -21,28 +21,6 @@ flashcards
 flake8 .
 browser
 ``` 
-# Set-up
-
-```bash
-# Clone the repository
-git clone https://github.com/joel-day/LeetCode-Workspace.git
-
-# Move into the local repository
-cd LeetCode-Workspace
-
-# Create the virtual environment
-uv venv .venv
-
-# Activate the virtual environment
-source .venv\bin\activate # Mac/Linux
-.venv\Scripts\activate   # Windows
-
-# Sync environment based on dependencies in top-level pyproject.toml file
-uv sync
-
-# (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
-uv sync --all-packages
-```
 
 # Solutions
 
@@ -50,15 +28,15 @@ uv sync --all-packages
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- For each solution, I provide the Intuition, Approach, Complexity, and Code.
+For each solution, I provide the Intuition, Approach, Complexity, and Code.
+
+SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
 
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
 - I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
-
-SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
 
 # 12. Integer to Roman
 #### Intuition:
@@ -265,4 +243,26 @@ reverseWords(s) {
 
     return reverse_string;
 }
+```
+# Workspace Set-up
+
+```bash
+# Clone the repository
+git clone https://github.com/joel-day/LeetCode-Workspace.git
+
+# Move into the local repository
+cd LeetCode-Workspace
+
+# Create the virtual environment
+uv venv .venv
+
+# Activate the virtual environment
+source .venv\bin\activate # Mac/Linux
+.venv\Scripts\activate   # Windows
+
+# Sync environment based on dependencies in top-level pyproject.toml file
+uv sync
+
+# (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
+uv sync --all-packages
 ```
