@@ -1,10 +1,16 @@
 # LeetCode Workspace
 
-This is a mono-repo for LeetCode practice. When I solve a leetcode problem, i try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. I am stronger with python, so i first find the python solution, and convert that solution to JavaScript. This may lead to less-than-optimal JavaScript solutions if the identical logic is more optimized for python. 
+This is a mono-repo for LeetCode practice. 
 
-After finding the solution and providing it in the readme below, I add the python solution to the helper.py file in the 'helpers' folder, then use flake8 to ensure pep8 compliance. 
+- I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
-When solving problems, i prioritize understanding the logic over the memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, i avoid them entirely, using google only to find isolated code or functions that can get me through each logical step of a problem. I add all of code needed to solve a problem, that i didnt already know, into notecards to ensure i'll know them next time.
+- I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
+
+- To ensure pep8 compliance, I add the python solution to the helper.py file in the 'helpers' folder, and use flake8 from the terminal to find flags. 
+
+- I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
+
+- I add all of code needed to solve a problem, that i didnt already know, into notecards to ensure i'll know them next time.
 
 Want to use this setup yourself? There is a setup section at the end to help. 
 
@@ -215,7 +221,7 @@ longestCommonPrefix(strs = []) {
 #### Complexity:
  - Time Complexity: ( O(n) )
  - Space Complexity: ( O(n) )
- 
+
 #### Code:
 ```python
 class Solution(object):
