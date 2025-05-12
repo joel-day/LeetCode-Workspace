@@ -1,9 +1,8 @@
 # LeetCode Workspace
+
+- This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
+
 - My solutions with explanations are in the 'Solutions' section below. 
-
-This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
-
-Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
 
 ## Flashcards
 - Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
@@ -20,6 +19,7 @@ flashcards
 flake8 .
 browser
 ``` 
+Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
 
 # Solutions
 
@@ -27,7 +27,7 @@ browser
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-For each solution, I provide the Intuition, Approach, Complexity, and Code.
+FOR EACH SOLUTION: Intuition, Approach, Complexity, and Code.
 
 SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
 
