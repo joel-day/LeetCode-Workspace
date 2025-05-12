@@ -1,10 +1,10 @@
 # LeetCode Workspace
 
-This is a custom mono-repo for LeetCode practice which includes flashcards and custom bash scripts.
+This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
 
-I add my solutions with explanations in the Solutions section below. 
+My solutions with explanations are in the 'Solutions' section below. 
 
-Want to use this mono-repo setup for yourself? See the Setup section at the bottom of the ReadMe. 
+Want to use this mono-repo setup for yourself? See the 'Set-up' section at the bottom of this ReadMe. 
 
 ## Flashcards
 - Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
@@ -36,7 +36,7 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
 
-- SOURCE: 'Top Interview 150' LeetCode list. 
+SOURCE: 'Top Interview 150' LeetCode list. 
 
 # 12. Integer to Roman
 #### Intuition:
