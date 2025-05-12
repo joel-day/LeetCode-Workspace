@@ -217,7 +217,7 @@ longestCommonPrefix(strs = []) {
 ```
 
 
-## 151. Reverse Words in a String
+# 151. Reverse Words in a String
 ##### Notes:
 - To handle spaces at the beginning and end use strip. 
 - Split ignores extra spaces in between words
