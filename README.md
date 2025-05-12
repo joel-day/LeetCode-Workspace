@@ -2,31 +2,8 @@
 
 This is a mono-repo for LeetCode practice.
 
-- Part I outlines the mono-repo set-up
-- Part II contains my LeetCode solutions w/ notes
+- Setup section at the end outlines the mono-repo set-up
 
-# Part I: Set-up
-
-```bash
-# Clone the repository
-git clone https://github.com/joel-day/LeetCode-Workspace.git
-
-# Move into the local repository
-cd LeetCode-Workspace
-
-# Create the virtual environment
-uv venv .venv
-
-# Activate the virtual environment
-source .venv\bin\activate # Mac/Linux
-.venv\Scripts\activate   # Windows
-
-# Sync environment based on dependencies in top-level pyproject.toml file
-uv sync
-
-# (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
-uv sync --all-packages
-```
 ### Custom CLI Commands
 #### Flashcards
 
@@ -155,7 +132,7 @@ class Solution(object):
 
 # 14. Longest Common Prefix
 ##### Notes:
-- To solve this problem i loop through each possible prefix from smallest to largest using the first word in the list. The i loop through each other word in the list to see if the prefix matched. The program exits when it fails to match and return the current longest prefix that match all the words in the list.
+- To solve this problem i loop through each possible prefix from smallest to largest using the first word in the list. Then i loop through each other word in the list to see if the prefix matched. The program exits when it fails to match and returns the current longest prefix that matched all the words in the list.
 - Using the first word avoids sorting the list
 
 ##### Complexity:
@@ -257,4 +234,27 @@ reverseWords(s) {
 
     return reverse_string;
 }
+```
+
+# Set-up
+
+```bash
+# Clone the repository
+git clone https://github.com/joel-day/LeetCode-Workspace.git
+
+# Move into the local repository
+cd LeetCode-Workspace
+
+# Create the virtual environment
+uv venv .venv
+
+# Activate the virtual environment
+source .venv\bin\activate # Mac/Linux
+.venv\Scripts\activate   # Windows
+
+# Sync environment based on dependencies in top-level pyproject.toml file
+uv sync
+
+# (OPTIONAL) Sync environment based on dependencies across all packages' pyproject.toml files
+uv sync --all-packages
 ```
