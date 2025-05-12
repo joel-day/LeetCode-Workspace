@@ -1,30 +1,14 @@
 # LeetCode Workspace
 
-This is a mono-repo for LeetCode practice. 
+This is a mono-repo for LeetCode practice. Want to use this setup yourself? There is a setup section at the end to help.
 
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
+
+- I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
 
 - To ensure pep8 compliance, I add the python solution to the helper.py file in the 'helpers' folder, and use flake8 from the terminal to find flags. 
-
-- I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
-
-- I add all of code needed to solve a problem, that i didnt already know, into notecards to ensure i'll know them next time.
-
-Want to use this setup yourself? There is a setup section at the end to help. 
-
-### Custom CLI Commands
-#### Flashcards
-
-- I use 'tkinter' to create a flashcard app for practicing.
-- Flashcards are stored in the 'data/raw/qa.xlsx' file
-- Use the "add_flashcard.ipynb" notebook to add cards.
-- Run the bash shortcut below in the terminal to open the flashcard UI.
-```bash
-flashcards
-```
-
 #### Check PEP8 compliance
 
 - I use 'Flake8' to check code compliance with PEP8 standards.
@@ -32,6 +16,17 @@ flashcards
 ```bash
 flake8 .
 ```
+
+- I add all of code needed to solve a problem, that i didnt already know, into notecards to ensure i'll know them next time.
+#### Flashcards
+- I use 'tkinter' to create a flashcard app for practicing.
+- Flashcards are stored in the 'data/raw/qa.xlsx' file
+- Use the "add_flashcard.ipynb" notebook to add cards.
+- Run the bash shortcut below in the terminal to open the flashcard UI.
+```bash
+flashcards
+``` 
+
 # Solutions
 
 ![Solution Image](data/raw/sol.jpg)
