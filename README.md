@@ -13,13 +13,13 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 FOR EACH SOLUTION: I provide the Intuition, Approach, Complexity, and Code.
 
-PROBLEM SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
-
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
 - I prioritize understanding the logic over memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
+
+SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
 
 # 12. Integer to Roman
 #### Intuition:
