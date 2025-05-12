@@ -13,7 +13,7 @@ To setup for yourself, see the 'Workspace Set-up' section at the bottom of this 
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- **For each solution, I provide the Intuition, Approach, Complexity, and Code.**
+For each solution, I provide the Intuition, Approach, Complexity, and Code. Problems are from the 'Top Interview 150' list on LeetCode. Problem numbers are from LeetCode.
 
 - I try to go beyond just finding a solution that works and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when necessary. 
 
@@ -21,7 +21,6 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
 
-- SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode.
 
 # 12. Integer to Roman
 #### Intuition:
