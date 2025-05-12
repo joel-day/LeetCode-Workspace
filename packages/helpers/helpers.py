@@ -62,3 +62,17 @@ class Solution(object):
             longest_prefix = prefix
 
         return longest_prefix
+    
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        s = s.strip()
+
+        word_list = s.split()[::-1]
+
+        reverse_string = ' '.join(word_list)
+
+        return reverse_string

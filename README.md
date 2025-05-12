@@ -215,3 +215,46 @@ longestCommonPrefix(strs = []) {
     return longestPrefix;
 }
 ```
+
+
+## 151. Reverse Words in a String
+##### Notes:
+- To handle spaces at the beginning and end use strip. 
+- Split ignores extra spaces in between words
+- [::-1] ensures these words are returned in reverse order
+
+##### Complexity:
+ - Time Complexity: ( O(n) )
+ - Space Complexity: ( O(n) )
+
+##### Python Solution: 
+```python
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        s = s.strip()
+
+        word_list = s.split()[::-1]
+
+        reverse_string = ' '.join(word_list)
+
+        return reverse_string
+
+```
+##### Javascript Solution:
+```javascript
+reverseWords(s) {
+
+    s = String(s).trim();
+
+    const word_list = s.split(/\s+/).reverse();
+
+    const reverse_string = word_list.join(' ');
+
+    return reverse_string;
+}
+```

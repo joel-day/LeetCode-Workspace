@@ -44,4 +44,18 @@ export class Solution {
 
         return longest_prefix;
     }
+
+    reverseWords(s) {
+
+        s = String(s).trim();
+
+        const word_list = s.split(/\s+/).reverse();
+
+        const reverse_string = word_list.join(' ');
+
+        return reverse_string;
+    }
+
+
+    
 }
