@@ -1,6 +1,12 @@
 # LeetCode Workspace
 
-This is a mono-repo for LeetCode practice. There is a setup section at the end.
+This is a mono-repo for LeetCode practice. When I solve a leetcode problem, i try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. I am stronger with python, so i first find the python solution, and convert that solution to JavaScript. This may lead to less-than-optimal JavaScript solutions if the identical logic is more optimized for python. 
+
+After finding the solution and providing it in the readme below, I add the python solution to the helper.py file in the 'helpers' folder, then use flake8 to ensure pep8 compliance. 
+
+When solving problems, i prioritize understanding the logic over the memorizating specific functions. Instead of using LLM models like ChatGPT to help work through problems, i avoid them entirely, using google only to find isolated code or functions that can get me through each logical step of a problem. I add all of code needed to solve a problem, that i didnt already know, into notecards to ensure i'll know them next time.
+
+Want to use this setup yourself? There is a setup section at the end to help. 
 
 ### Custom CLI Commands
 #### Flashcards
@@ -26,25 +32,27 @@ flake8 .
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- All problems were found in the 'Top Interview 150' LeetCode playlist.
-- For each problem I provide...
+- SOURCE: 'Top Interview 150' LeetCode list. For each solution, I provide the...
       
-1) Notes
-2) Time/Space Complexity
-3) Python Solution
-4) Javascript Solution
+1) Intuition
+2) Approach
+3) Complexity
+4) Code
 
 
 # 12. Integer to Roman
-#### Notes:
+#### Intuition:
 - Dictionary iteration order is not guaranteed. When the order is importaint, use a list > dict.
+
+#### Approach:
 
 #### Complexity:
  - Time Complexity: ( O(n) ) — Linear growth dependent on the input number size.
  - Space Complexity: ( O(n) ) — Linear growth dependent on the input number size.
 
-#### Python Solution: 
+#### Code: 
 ```python
+# Python
 class Solution(object):
     def intToRoman(self, num):
         """
@@ -70,8 +78,8 @@ class Solution(object):
 
         return ''.join(results)
 ```
-#### Javascript Solution:
 ```javascript
+// JavaScript
 var intToRoman = function(num) {
     const values = [
         [1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
@@ -89,16 +97,17 @@ var intToRoman = function(num) {
 };
 ```
 
-
 # 58. Length of Last Word
-#### Notes:
+#### Intuition:
 - rsplit and rstrip begin at the end of the list - minimizing processing requirments
+
+#### Approach:
 
 #### Complexity:
 - Time Complexity: ( O(n) ) — Depends on the string size (characters).
 - Space Complexity: ( O(n) ) — Depends on the string size (characters).
 
-#### Python Solution:     
+#### Code:   
 ```python
 class Solution(object):
     def lengthOfLastWord(self, s):
@@ -116,7 +125,6 @@ class Solution(object):
 
         return word_length
 ```
-#### Javascript Solution:
 ```javascript
     var lengthoflastword = function(s) {
         s = s.trimEnd();
@@ -130,15 +138,18 @@ class Solution(object):
 
 
 # 14. Longest Common Prefix
-##### Notes:
+#### Intuition:
+- rsplit and rstrip begin at the end of the list - minimizing processing requirments
+
+#### Approach:
 - To solve this problem i loop through each possible prefix from smallest to largest using the first word in the list. Then i loop through each other word in the list to see if the prefix matched. The program exits when it fails to match and returns the current longest prefix that matched all the words in the list.
 - Using the first word avoids sorting the list
 
-##### Complexity:
+#### Complexity:
  - Time Complexity: ( O(n*m) )
  - Space Complexity: ( O(n) )
 
-##### Python Solution: 
+#### Code: 
 ```python
 class Solution(object):
     def longestCommonPrefix(self, strs: list = []) -> str:
@@ -168,7 +179,6 @@ class Solution(object):
 
         return longest_prefix
 ```
-##### Javascript Solution:
 ```javascript
 longestCommonPrefix(strs = []) {
     let longest_prefix = '';
@@ -194,16 +204,19 @@ longestCommonPrefix(strs = []) {
 
 
 # 151. Reverse Words in a String
-##### Notes:
+#### Intuition:
+
+
+#### Approach:
 - To handle spaces at the beginning and end use strip. 
 - Split ignores extra spaces in between words
 - [::-1] ensures these words are returned in reverse order
 
-##### Complexity:
+#### Complexity:
  - Time Complexity: ( O(n) )
  - Space Complexity: ( O(n) )
-
-##### Python Solution: 
+ 
+#### Code:
 ```python
 class Solution(object):
     def reverseWords(self, s):
@@ -221,7 +234,6 @@ class Solution(object):
         return reverse_string
 
 ```
-##### Javascript Solution:
 ```javascript
 reverseWords(s) {
 
