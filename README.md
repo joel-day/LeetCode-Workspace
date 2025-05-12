@@ -11,8 +11,8 @@ flashcards
 ``` 
 
 ## Bash Scripts
-- 'flake8 .'  PEP8 compliance:  Python solutions are added to 'helpers/helper.py' to use with flake8. 
-- 'browser'   Save time:        Load ChatGPT and LeetCode in the browser. 
+- 'flake8 .'  Use for:   PEP8 compliance.  Python solutions are added to 'helpers/helper.py' to use with flake8. 
+- 'browser'   Use for:   Saving time.      Loads ChatGPT and LeetCode in the browser. 
 ```bash
 flake8 .
 browser
