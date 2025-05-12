@@ -36,7 +36,7 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 - I am stronger with python, so after initialy solving the problem with python, I then convert it to JavaScript.
 
-SOURCE: 'Top Interview 150' LeetCode list. 
+SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
 
 # 12. Integer to Roman
 #### Intuition:
