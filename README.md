@@ -25,8 +25,9 @@ SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by Lee
 
 # 12. Integer to Roman
 #### Intuition:
-- To avoid creating new varibles, the input integer is reused by subtracting the value of each output roman numeral as we go.
-- Use a list as opposed to a dict for the roman numerals. Dictionary iteration order is not guaranteed. Because the order is importaint, use a list.
+The goal is to convert an integer to roman numerals. First, create a list pairing each unique roman numeral and its value - sorted from highest to lowest. Then, iterate throught this list, if the integer is greater than the value of the roman numeral, add the roman numeral to the output string and subtract the value of the roman numeral from the interger. Continue this process until the integer is 0. 
+Note: To avoid creating new varibles, the input integer is reused by subtracting the value of each output roman numeral as we go.
+Note: Use a list as opposed to a dict for the roman numerals. Dictionary iteration order is not guaranteed. Because the order is importaint, use a list.
 
 #### Approach:
 - Create a list of each unique pair of roman numerals and their values, ordered from largest to smallest.
@@ -86,8 +87,8 @@ var intToRoman = function(num) {
 
 # 58. Length of Last Word
 #### Intuition:
-- The goal here is to find a way to avoid processing the entire sting, and focus only on wehat matters (the end). 
-- 'rsplit' and 'rstrip' begin at the end of the list - minimizing processing requirments
+The goal here is find the length of the last word. To do this, first 'clean up' any extra whitespaces in the string, then isolate the word by splitting on the last white space. Once the word is isolated into its own variable, simply count the letters with len().  
+Note: To avoid processing the entire sting, 'rsplit' and 'rstrip' are used to begin at the end of the list.
 
 #### Approach:
 - Remove the leading and trailing whitespacves with 'rstrip'
@@ -129,12 +130,12 @@ class Solution(object):
 
 # 14. Longest Common Prefix
 #### Intuition:
-- Using the first word, i iterate over each prefix and check if ALL of the other words in the list contain the same prefix. If all the other words have the same prefix, the 'longest_prefix' varible is updated to show that, and i add a letter to the prefix. The code breaks when another word fails to match, then the current output string is returned. 
-- Using the first word avoids needing to sort the list.
+The goal is the find the longest common prefix across ALL the words in a list. To do this, compare the first word to the remaining words to see if they match, beginning with the first letter, then the first two letters, ect. to find the longest common prefix. At each iteration, see if all the other words begin with the same prefix, if so, the 'longest_prefix' varible is updated, if not, the current 'longest_prefix' varible is returned. 
+Note: Using the first word to iterate over avoids needing to sort the list.
 
 #### Approach:
-- Iterate over each prefix in the first word
-- For each prefix, iterate over all remaining words to see if they contains the prefix. If not, it returns the current longest prefix, if so it updates the longest_prefix variable and repeats the process with the next (longer) prefix)
+- Iterate over each incrementing prefix in the first word.
+- For each prefix, iterate over all remaining words to see if they contains the prefix. If not, it returns the current longest prefix, if so it updates the longest_prefix variable and repeats the process with the next (longer) prefix.
 
 #### Complexity:
  - Time Complexity: ( O(n*m) )
@@ -195,7 +196,8 @@ longestCommonPrefix(strs = []) {
 
 # 151. Reverse Words in a String
 #### Intuition:
-- Use [::-1] to reverse sort the list without creating an additional variable. 
+The goal is to return all the words in the list without the extra whitespaces and in reverse order; this is in three steps. First remove leading and trailing whitespaces, then split the string at each internal space and return non-empty words as a list in reverse order, then rejoin these words into a string. 
+Note: Use [::-1] to reverse sort the list without creating an additional variable. 
 
 #### Approach:
 - Use 'strip' to remove leading and trailing spaces.
