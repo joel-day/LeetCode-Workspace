@@ -2,22 +2,20 @@
 
 This is a custom mono-repo for LeetCode practice which includes flashcards and custom bash scripts.
 
-
-- Flashcards
+## Flashcards
     - I use 'tkinter' to create a flashcard app for practicing.
     - Flashcards are stored in the 'data/raw/qa.xlsx' file
     - Use the "add_flashcard.ipynb" notebook to add cards.
     - Run the bash shortcut below in the terminal to open the flashcard UI.
-
-- Bash Scripts
-    - Python solutions are added to 'helpers/helper.py' to use with flake8. 
-```bash
-flake8 .
-```
-    - 'flashcards' loads the flashcard UI. 
-    - 'browser' loads ChatGPT and LeetCode in the browser.
 ```bash
 flashcards
+``` 
+
+## Bash Scripts
+    - Python solutions are added to 'helpers/helper.py' to use with flake8. 
+    - 'browser' loads ChatGPT and LeetCode in the browser.
+```bash
+flake8 .
 browser
 ``` 
 
