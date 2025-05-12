@@ -11,9 +11,9 @@ The mono-repo includes a custom flashcard UI and bash scripts for taking practic
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-FOR EACH SOLUTION: Intuition, Approach, Complexity, and Code.
+FOR EACH SOLUTION: I provide the Intuition, Approach, Complexity, and Code.
 
-SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
+PROBLEM SOURCE: 'Top Interview 150' LeetCode list. Problem numbers are determined by LeetCode. 
 
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
