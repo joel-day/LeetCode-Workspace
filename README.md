@@ -2,7 +2,9 @@
 
 Welcome to my custom mono-repo for practicing LeetCode, which doubles as a journal for my solutions.
 
-Included is a custom flashcard UI and bash scripts for taking practice to the next level. To setup for yourself, see the 'Workspace Set-up' section at the bottom of this ReadMe. 
+The repo includes a custom flashcard UI and bash scripts for taking practice to the next level. 
+
+To setup for yourself, see the 'Workspace Set-up' section at the bottom of this ReadMe. 
 
 
 # My Solutions
