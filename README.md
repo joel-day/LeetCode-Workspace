@@ -1,8 +1,8 @@
 # LeetCode Workspace
 
-- This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
+This is a custom mono-repo for practicing LeetCode which includes flashcards and custom bash scripts.
 
-- My solutions with explanations are in the 'Solutions' section below. 
+My solutions with explanations are in the 'Solutions' section below. 
 
 ## Flashcards
 - Flashcards are stored in the 'data/raw/qa.xlsx' excel file.
