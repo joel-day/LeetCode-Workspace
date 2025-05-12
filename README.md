@@ -11,12 +11,10 @@ flashcards
 ``` 
 
 ## Bash Scripts
-- PEP8 compliance: Python solutions are added to 'helpers/helper.py' to use with flake8. 
+- 'flake8 .'  PEP8 compliance:  Python solutions are added to 'helpers/helper.py' to use with flake8. 
+- 'browser'   Save time:        Load ChatGPT and LeetCode in the browser. 
 ```bash
 flake8 .
-``` 
-- Save time: Load ChatGPT and LeetCode in the browser. 
-```bash
 browser
 ``` 
 
@@ -26,7 +24,7 @@ browser
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- For each solution, I provide 1) Intuition 2) Approach 3) Complexity 4) Code
+- For each solution, I provide the Intuition, Approach, Complexity, and Code.
 
 - I try to go beyond just finding a solution that works, and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when neccesary. 
 
