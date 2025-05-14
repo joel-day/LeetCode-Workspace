@@ -295,9 +295,9 @@ var convert = function(s, numRows) {
 ```
 ## 36. Valid Sudoku
 #### Intuition:
-The goal is to check if the sudoku board is valid. To check handle each of the three features seperately rows, columns, squares. As soon as a a duplicate is found, exit. 
+The goal is to check if the sudoku board is valid. To check, handle each of the three features seperately (rows, columns, squares). As soon as a a duplicate is found, exit. 
 #### Approach:
-- For each row check is the len of the values is equal to the set (check for duplicates) if so exit, if not continue.
+- For each row check if the len of the values is equal to the set (check for duplicates) if so exit, if not continue.
 - Next do the same for each column
 - Finally check the squares.
 #### Complexity:
