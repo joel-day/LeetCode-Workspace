@@ -11,3 +11,5 @@ console.log(sol.lengthOfLastWord("hello world  "));
 console.log(sol.longestCommonPrefix(["fl66ower","fl666ow","fl66ight"]));
 
 console.log(sol.reverseWords(["    a good   example  foodbanana "]));
+
+console.log(sol.convert_string('PAYPALISHIRING', 3));

@@ -76,3 +76,22 @@ class Solution(object):
         reverse_string = ' '.join(word_list)
 
         return reverse_string
+
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1:
+            return s
+
+        final_string = ''
+
+        for i in range(numRows):
+            for j in range(i, len(s), 2 * (numRows - 1)):
+                final_string += s[j]
+                if (i > 0 and i < numRows - 1 and j + 2 * (numRows - 1) - (2 * i) < len(s)):
+                    final_string += s[j + 2 * (numRows - 1) - (2 * i)]
+
+        return final_string

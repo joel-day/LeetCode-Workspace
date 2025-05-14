@@ -56,6 +56,24 @@ export class Solution {
         return reverse_string;
     }
 
+    convert_string(s, numRows) {
+        if (numRows === 1) return s;
+
+        let finalString = '';
+
+        for (let i = 0; i < numRows; i++) {
+            for (let j = i; j < s.length; j += 2 * (numRows - 1)) {
+                finalString += s[j];
+                let diag = j + 2 * (numRows - 1) - 2 * i;
+                if (i > 0 && i < numRows - 1 && diag < s.length) {
+                    finalString += s[diag];
+                }
+            }
+        }
+
+        return finalString;
+}
+
 
     
 }

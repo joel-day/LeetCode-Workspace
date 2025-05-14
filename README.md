@@ -242,6 +242,58 @@ reverseWords(s) {
     return reverse_string;
 }
 ```
+## 6. Zigzag Conversion
+#### Intuition:
+The goal is to rearrange the string. This will be done by iterating over the string in a specific way and adding each letter to a new string as we go. To do this loop iterate by row adding the letters needed beofre moving onto the next row.
+
+#### Approach:
+- Iterate one row at a time
+- For each row, iterate over the string begining with the index where (index = row number - 1) and skipping over indexes with an interval equal to 2(n-1) where n is the number of rows. For the middle rows, also add the indexes  (2(n-1) - (2i)) greater than the index at each interval, this adds the diagnal letters. 
+#### Complexity:
+ - Time Complexity: ( O(n*m) ) — Linear growth dependent on the input number size.
+ - Space Complexity: ( O(n) ) — Linear growth dependent on the input number size.
+
+#### Code:
+```python
+def convert(self, s, numRows):
+    """
+    :type s: str
+    :type numRows: int
+    :rtype: str
+    """
+    if numRows == 1:
+        return s
+
+    final_string = ''
+
+    for i in range(numRows):
+        for j in range(i, len(s), 2*(numRows-1)):
+            final_string+=s[j]
+            if (i>0 and i<numRows-1 and j + 2*(numRows-1) - (2*i) < len(s)):
+                final_string+=s[j + 2*(numRows-1) - (2*i)]
+
+    return final_string
+```
+```javascript
+var convert = function(s, numRows) {
+    if (numRows === 1) return s;
+
+    let finalString = '';
+
+    for (let i = 0; i < numRows; i++) {
+        for (let j = i; j < s.length; j += 2 * (numRows - 1)) {
+            finalString += s[j];
+            let diag = j + 2 * (numRows - 1) - 2 * i;
+            if (i > 0 && i < numRows - 1 && diag < s.length) {
+                finalString += s[diag];
+            }
+        }
+    }
+
+    return finalString;
+};
+```
+
 # Workspace Set-up
 
 ```bash
