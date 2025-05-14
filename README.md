@@ -293,6 +293,89 @@ var convert = function(s, numRows) {
     return finalString;
 };
 ```
+## 36. Valid Sudoku
+#### Intuition:
+The goal is to check if the sudoku board is valid. To check handle each of the three features seperately rows, columns, squares. As soon as a a duplicate is found, exit. 
+#### Approach:
+- For each row check is the len of the values is equal to the set (check for duplicates) if so exit, if not continue.
+- Next do the same for each column
+- Finally check the squares.
+#### Complexity:
+ - Time Complexity: ( O(1) )
+ - Space Complexity: ( O(n) )
+
+#### Code:
+```python
+def isValidSudoku(self, board):
+
+    # Check rows
+    for row in board:
+        values = [num for num in row if num != "."]
+        if len(values) != len(set(values)):  # Ignore empty cells
+            return False
+
+    # Check columns
+    for i in range(9):  # Since it's a 9x9 board
+        col = [board[row][i] for row in range(9) if board[row][i] != "."]
+        if len(col) != len(set(col)):
+            return False
+
+    # Check 3x3 sub-boxes
+    for row_start in [0, 3, 6]:  
+        for col_start in [0, 3, 6]:  
+            square = [
+                board[i][j] for i in range(row_start, row_start + 3)
+                            for j in range(col_start, col_start + 3) 
+                            if board[i][j] != "."
+            ]
+            if len(square) != len(set(square)):
+                return False
+
+    return True  # If no duplicates found, the Sudoku board is valid
+```
+```javascript
+var isValidSudoku = function(board) {
+
+    // Check rows
+    for (let row of board) {
+        let values = row.filter(num => num !== ".");
+        if (new Set(values).size !== values.length) {
+            return false;
+        }
+    }
+
+    // Check columns
+    for (let i = 0; i < 9; i++) {
+        let col = [];
+        for (let row = 0; row < 9; row++) {
+            if (board[row][i] !== ".") {
+                col.push(board[row][i]);
+            }
+        }
+        if (new Set(col).size !== col.length) {
+            return false;
+        }
+    }
+
+    // Check 3x3 sub-boxes
+    for (let rowStart of [0, 3, 6]) {
+        for (let colStart of [0, 3, 6]) {
+            let square = [];
+            for (let i = rowStart; i < rowStart + 3; i++) {
+                for (let j = colStart; j < colStart + 3; j++) {
+                    if (board[i][j] !== ".") {
+                        square.push(board[i][j]);
+                    }
+                }
+            }
+            if (new Set(square).size !== square.length) {
+                return false;
+            }
+        }
+    }
+    return true;
+};
+```
 
 # Workspace Set-up
 
