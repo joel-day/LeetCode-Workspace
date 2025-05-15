@@ -376,6 +376,140 @@ var isValidSudoku = function(board) {
     return true;
 };
 ```
+## 28. Find the Index of the First Occurrence in a String
+#### Intuition:
+My favorite solution so far. The goal here is to find the first occurance of a substring in a main string. .find() and .index() and both return the first occurance of the input, but .find() returns -1 when not found while .index() return an error messge. Using find me to avoid if then logic for when the needle doesnt exist in the haystack.
+HINT: Use .find() when you're not sure if the string exists, and use .index() when you're sure it does and want an error otherwise.
+
+#### Approach:
+- use haystack.find(needle) in the return statement and we good.
+
+#### Complexity:
+ - Time Complexity: ( O(n*m) ) — Worst case when they represent length of strings
+ - Space Complexity: ( O(1) )
+
+#### Code:
+```python
+def strStr(self, haystack: str, needle: str) -> int:
+    return haystack.find(needle)
+```
+```javascript
+function strStr (haystack, needle) {
+    return haystack.indexOf(needle);
+}
+```
+## 54. Spiral Matrix
+#### Intuition:
+Break the issue into 4 parts, the top row, the last column, the last row, and the first column. One at a time, extract the numbers as a string and remove them from the matrix. Rotate through each step until the matrix is empty. 
+
+#### Approach:
+- iterate over values in the first row, append them to results and remove them from the matrix. 
+- iterate over the last column, append them to results and remove them from the matrix.
+- iterate over last row in reverse order, append them to results and remove them from the matrix.
+- iterate over the first column in reverse order, append them to results and remove them from the matrix.
+- repeat
+
+#### Complexity:
+ - Time Complexity: ( O(n) ) — The size of the matrix
+ - Space Complexity: ( O(1) ) — the results list
+
+#### Code:
+```python
+class Solution(object):
+    def spiralOrder(self, matrix):
+        output_list = []
+        step = 1
+
+        while matrix and matrix[0]:
+
+            if step == 1:
+
+                for i in matrix[0]:
+                    output_list.append(i)
+
+                del(matrix[0])
+                step += 1
+                continue
+
+            if step == 2:
+
+                j = len(matrix[0]) -1
+
+                for i in range(0, len(matrix)):
+                    output_list.append(matrix[i][j])
+
+                    del(matrix[i][j])
+
+                step += 1
+                continue
+
+            if step == 3:
+
+                for i in matrix[-1][::-1]:
+                    output_list.append(i)
+
+                del(matrix[-1])
+                step += 1
+                continue
+
+            if step == 4:
+
+                for i in range(len(matrix) - 1, -1, -1):
+
+                    output_list.append(matrix[i][0])
+
+                    del(matrix[i][0])
+                step = 1
+                continue
+
+        return output_list
+```
+```javascript
+function spiralOrder(matrix) {
+    let outputList = [];
+    let step = 1;
+
+    while (matrix.length && matrix[0].length) {
+        if (step === 1) {
+            // Traverse top row
+            outputList.push(...matrix[0]);
+            matrix.shift();
+            step++;
+            continue;
+        }
+
+        if (step === 2) {
+            // Traverse right column
+            for (let i = 0; i < matrix.length; i++) {
+                outputList.push(matrix[i][matrix[i].length - 1]);
+                matrix[i].splice(matrix[i].length - 1, 1);
+            }
+            step++;
+            continue;
+        }
+
+        if (step === 3) {
+            // Traverse bottom row in reverse
+            outputList.push(...matrix[matrix.length - 1].reverse());
+            matrix.pop();
+            step++;
+            continue;
+        }
+
+        if (step === 4) {
+            // Traverse left column bottom to top
+            for (let i = matrix.length - 1; i >= 0; i--) {
+                outputList.push(matrix[i][0]);
+                matrix[i].splice(0, 1);
+            }
+            step = 1;
+            continue;
+        }
+    }
+
+    return outputList;
+}
+```
 
 # Workspace Set-up
 

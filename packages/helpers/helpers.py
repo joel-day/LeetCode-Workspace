@@ -95,3 +95,6 @@ class Solution(object):
                     final_string += s[j + 2 * (numRows - 1) - (2 * i)]
 
         return final_string
+    
+    def strStr(self, haystack: str, needle: str) -> int:
+        return haystack.find(needle)

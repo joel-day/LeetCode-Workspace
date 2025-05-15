@@ -72,8 +72,55 @@ export class Solution {
         }
 
         return finalString;
-}
+    }
 
+    strStr(haystack, needle) {
+        return haystack.indexOf(needle);
+    }  
 
-    
+    spiralOrder(matrix) {
+        let outputList = [];
+        let step = 1;
+
+        while (matrix.length && matrix[0].length) {
+            if (step === 1) {
+                // Traverse top row
+                outputList.push(...matrix[0]);
+                matrix.shift();
+                step++;
+                continue;
+            }
+
+            if (step === 2) {
+                // Traverse right column
+                for (let i = 0; i < matrix.length; i++) {
+                    outputList.push(matrix[i][matrix[i].length - 1]);
+                    matrix[i].splice(matrix[i].length - 1, 1);
+                }
+                step++;
+                continue;
+            }
+
+            if (step === 3) {
+                // Traverse bottom row in reverse
+                outputList.push(...matrix[matrix.length - 1].reverse());
+                matrix.pop();
+                step++;
+                continue;
+            }
+
+            if (step === 4) {
+                // Traverse left column bottom to top
+                for (let i = matrix.length - 1; i >= 0; i--) {
+                    outputList.push(matrix[i][0]);
+                    matrix[i].splice(0, 1);
+                }
+                step = 1;
+                continue;
+            }
+        }
+
+        return outputList;
+    }
+
 }
