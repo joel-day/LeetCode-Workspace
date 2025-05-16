@@ -610,7 +610,7 @@ function strStr (haystack, needle) {
     return haystack.indexOf(needle);
 }
 ```
-## 54. Spiral Matrix
+## 148. Spiral Matrix
 ### Input/Output
 ```python
 # Input
@@ -730,7 +730,7 @@ function spiralOrder(matrix) {
     return outputList;
 }
 ```
-## 48. Rotate Image
+## 149. Rotate Image
 ### Input/Output
 ```python
 # Input
@@ -790,7 +790,7 @@ function rotate(A) {
 }
 ```
 
-## 68. Text Justification
+## ＃150. Text Justification 💥
 ### Input/Output
 ```python
 # Input
