@@ -13,7 +13,7 @@
 
 Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Olav Ahrens Røtne</a> on <a href="https://unsplash.com/photos/person-playing-magic-cube-4Ennrbj1svk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
-- For each solution, I provide the Intuition, Approach, Complexity, and Code. Source: 'Top Interview 150' list on LeetCode.
+- For each solution, I provide the Intuition, Approach, and Code in Python and Javascript. Source: 'Top Interview 150' list on LeetCode.
 
 - I try to go beyond just finding a solution that works and instead find one that is optimized to minimize both time and space complexity. For example, avoiding nested loops with n^2 time complexity, and creating new variables only when necessary. 
 
@@ -21,6 +21,85 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
 
+## 73. Set Matrix Zeroes
+### Input/Output
+```python
+# Input
+matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
+
+# Output
+output = [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
+```
+
+#### Intuition:
+The goal here is to zero out the values that share a row or a column with an existing zero. To do this first save the indexes of the rows and columns that contain a zero, then cancel those out. Make sure to zero out only after the indices for both rows and columns have been stored. 
+
+#### Approach:
+- save the row numbers that contain zeros in a dict
+- save the columns with zeros in a dict
+- zero out all values in the rows and columns that contain a zero
+
+#### Code:
+```python
+class Solution:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        
+        # Get all the rows with a zero
+        rows_with_zero = {
+            i for i in range(len(matrix))
+            if any(matrix[i][j] == 0 for j in range(len(matrix[i])))
+        }
+
+        # Get all the columns with zero
+        cols_with_zero = {
+            j for j in range(len(matrix[0]))
+            if any(matrix[i][j] == 0 for i in range(len(matrix)))
+        }
+
+        # Zero out rows
+        for i in rows_with_zero:
+            matrix[i] = [0 for _ in matrix[i]]
+
+        # Zero out columns
+        for row in matrix:
+            for i in cols_with_zero:
+                row[i] = 0
+
+        return matrix
+```
+```javascript
+var setZeroes = function(matrix) {
+    const rowsWithZero = new Set();
+    const colsWithZero = new Set();
+
+    // Find all rows and columns that contain a zero
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[0].length; j++) {
+            if (matrix[i][j] === 0) {
+                rowsWithZero.add(i);
+                colsWithZero.add(j);
+            }
+        }
+    }
+
+    // Zero out the rows
+    for (let i of rowsWithZero) {
+        for (let j = 0; j < matrix[0].length; j++) {
+            matrix[i][j] = 0;
+        }
+    }
+
+    // Zero out the columns
+    for (let j of colsWithZero) {
+        for (let i = 0; i < matrix.length; i++) {
+            matrix[i][j] = 0;
+        }
+    }
+};
+```
 
 # 12. Integer to Roman
 #### Intuition:
