@@ -32,7 +32,7 @@ output = [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 ```
 
 #### Intuition:
-The goal is to apply the game of life to this board in-place. To do this solve the problem in two steps, first update each value to a temporary label based on what its current state. Then apply a map to convert the labels to the final 0/1 values. Use -1 for values that die, then use absolute value of 1 when checking later values. For values that were dead and now alive use 2. so they fail the == 1 check when looking for currently alive neighbors. Once everthing is labeled, convert values >= 1 to 1 and values < 1 to 0. 
+The goal is to apply the game of life to this board - in-place. This is solved in two steps. 1. Update each value to a temporary label based on its neighbors. 2. Map the labels to the final 0/1 values. To solve the inplace problem, when iterating across values, instead of counting all values of 1 in the neighbors count all values with an absolute value of 1. If a value needs to be changed from 1 to 0, first mark it as -1, For values that were dead and now alive use 2. so they fail the == 1 check when looking for currently alive neighbors. Once everthing is labeled, convert values >= 1 to 1 and values < 1 to 0. 
 
 #### Approach:
 - Iterate over each matrix value
@@ -119,7 +119,7 @@ output = [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
 ```
 
 #### Intuition:
-The goal here is to zero out the values that share a row or a column with an existing zero. To do this first save the indexes of the rows and columns that contain a zero, then cancel those out. Make sure to zero out only after the indices for both rows and columns have been stored. 
+The goal here is to zero out the values that share a row or a column with an existing zero. To do this first save the indexes of the rows and columns that contain a zero, then zero those rows and columns out. Make sure to zero out only after the indices for both rows and columns have been stored. 
 
 #### Approach:
 - save the row numbers that contain zeros in a dict
@@ -189,6 +189,14 @@ var setZeroes = function(matrix) {
 ```
 
 # 12. Integer to Roman
+### Input/Output
+```python
+# Input
+num = 3749
+# Output
+"MMMDCCXLIX"
+```
+
 #### Intuition:
 The goal is to convert an integer to roman numerals. First, create a list pairing each unique roman numeral and its value - sorted from highest to lowest. Then, iterate through this list, if the integer is greater than the value of the roman numeral, add the roman numeral to the output string and subtract the value of the roman numeral from the integer. Continue this process until the integer is 0.
 
@@ -200,10 +208,6 @@ Note: Use a list as opposed to a dict for the roman numerals. Dictionary iterati
 - Create a list of each unique pair of roman numerals and their values, ordered from largest to smallest.
 - Iterate through the list, if the target integer is greater than the value of the roman numeral, append that numeral to the results list and subtract the value of that numeral from the target integer.
 - Advance to the next (lower) roman numeral only when the input is less than the numeral value. 
-
-#### Complexity:
- - Time Complexity: ( O(n) ) — Linear growth dependent on the input number size.
- - Space Complexity: ( O(n) ) — Linear growth dependent on the input number size.
 
 #### Code: 
 ```python
@@ -253,6 +257,15 @@ var intToRoman = function(num) {
 ```
 
 # 58. Length of Last Word
+### Input/Output
+```python
+# Input
+s = "Hello World"
+
+# Output
+5
+```
+
 #### Intuition:
 The goal here is to find the length of the last word. To do this, first 'clean up' any extra white spaces in the string, then isolate the word by splitting on the last white space. Once the word is isolated into its own variable, simply count the letters with len().  
 
@@ -262,10 +275,6 @@ Note: To avoid processing the entire sting, 'rsplit' and 'rstrip' are used to be
 - Remove the leading and trailing whitespaces with 'rstrip'
 - Use rsplit(' ', 1)[-1] to begin splitting from the end, split only once, and save the last chunk as a variable (last_word). 
 - Use len() to get the length of the word
-
-#### Complexity:
-- Time Complexity: ( O(n) ) — Depends on the string size (characters).
-- Space Complexity: ( O(n) ) — Depends on the string size (characters).
 
 #### Code:   
 ```python
@@ -297,18 +306,22 @@ class Solution(object):
 ```
 
 # 14. Longest Common Prefix
+### Input/Output
+```python
+# Input
+strs = ["flower","flow","flight"]
+# Output
+"fl"
+```
+
 #### Intuition:
-The goal is to find the longest common prefix across ALL the words in a list. To do this, compare the first word to the remaining words to see if they match, beginning with the first letter, then the first two letters, ect. to find the longest common prefix. At each iteration, see if all the other words begin with the same prefix, if so, the 'longest_prefix' variable is updated, if not, the current 'longest_prefix' variable is returned. 
+The goal is to find the longest common prefix across every word in the list. To do this, compare the first word to the remaining words to see if they match, beginning with the first letter, then the first two letters, ect. to find the longest common prefix. At each iteration, see if all the other words begin with the same prefix, if so, the 'longest_prefix' variable is updated, if not, the current 'longest_prefix' variable is returned. 
 
 Note: Using the first word to iterate over avoids needing to sort the list.
 
 #### Approach:
 - Iterate over each incrementing prefix in the first word.
 - For each prefix, iterate over all remaining words to see if they contain the prefix. If not, it returns the current longest prefix, if so, it updates the ‘longest_prefix’ variable and repeats the process with the next (longer) prefix.
-
-#### Complexity:
- - Time Complexity: ( O(n*m) )
- - Space Complexity: ( O(n) )
 
 #### Code: 
 ```python
@@ -364,8 +377,17 @@ longestCommonPrefix(strs = []) {
 ```
 
 # 151. Reverse Words in a String
+### Input/Output
+```python
+# Input
+s = "the sky is blue"
+
+# Output
+"blue is sky the"
+```
+
 #### Intuition:
-The goal is to return all the words in the list without the extra whitespaces and in reverse order; this is in three steps. First remove leading and trailing whitespaces, then split the string at each internal space and return non-empty words as a list in reverse order, then rejoin these words into a string.
+The goal is to return all the words in the list without the extra whitespaces and in reverse order. To do this 1. Remove leading and trailing whitespaces 2. Split the string at each internal space and return non-empty words as a list in reverse order 3. Rejoin these words into a string.
 
 Note: Use [::-1] to reverse sort the list without creating an additional variable. 
 
@@ -373,10 +395,6 @@ Note: Use [::-1] to reverse sort the list without creating an additional variabl
 - Use 'strip' to remove leading and trailing spaces.
 - Use 'split()[::-1]' to create a list of words in reverse order. The trick is to sort by '-1' to easily satisfy the reverse order constraint. This will also handle any repeated space between words.
 - Simply use join with ' ' to create the output string. 
-
-#### Complexity:
- - Time Complexity: ( O(n) )
- - Space Complexity: ( O(n) )
 
 #### Code:
 ```python
@@ -409,15 +427,21 @@ reverseWords(s) {
 }
 ```
 ## 6. Zigzag Conversion
+### Input/Output
+```python
+# Input
+s = "PAYPALISHIRING"
+
+# Output
+"PAHNAPLSIIGYIR"
+```
+
 #### Intuition:
-The goal is to rearrange the string. This will be done by iterating over the string in a specific way and adding each letter to a new string as we go. To do this loop iterate by row adding the letters needed beofre moving onto the next row.
+The goal is to rearrange the string. This will be done by iterating over the string in a specific way and adding each letter to a new string as we go. To do this, iterate by row adding the letters needed before moving onto the next row.
 
 #### Approach:
 - Iterate one row at a time
 - For each row, iterate over the string begining with the index where (index = row number - 1) and skipping over indexes with an interval equal to 2(n-1) where n is the number of rows. For the middle rows, also add the indexes  (2(n-1) - (2i)) greater than the index at each interval, this adds the diagnal letters. 
-#### Complexity:
- - Time Complexity: ( O(n*m) ) — Linear growth dependent on the input number size.
- - Space Complexity: ( O(n) ) — Linear growth dependent on the input number size.
 
 #### Code:
 ```python
@@ -460,15 +484,31 @@ var convert = function(s, numRows) {
 };
 ```
 ## 36. Valid Sudoku
+### Input/Output
+```python
+# Input
+board = [
+["5","3",".",".","7",".",".",".","."],
+["6",".",".","1","9","5",".",".","."],
+[".","9","8",".",".",".",".","6","."],
+["8",".",".",".","6",".",".",".","3"],
+["4",".",".","8",".","3",".",".","1"],
+["7",".",".",".","2",".",".",".","6"],
+[".","6",".",".",".",".","2","8","."],
+[".",".",".","4","1","9",".",".","5"],
+[".",".",".",".","8",".",".","7","9"]]
+
+# Output
+true
+```
+
 #### Intuition:
 The goal is to check if the sudoku board is valid. To check, handle each of the three features seperately (rows, columns, squares). As soon as a a duplicate is found, exit. 
+
 #### Approach:
 - For each row check if the len of the values is equal to the set (check for duplicates) if so exit, if not continue.
 - Next do the same for each column
 - Finally check the squares.
-#### Complexity:
- - Time Complexity: ( O(1) )
- - Space Complexity: ( O(n) )
 
 #### Code:
 ```python
@@ -543,16 +583,22 @@ var isValidSudoku = function(board) {
 };
 ```
 ## 28. Find the Index of the First Occurrence in a String
+### Input/Output
+```python
+# Input
+haystack = "sadbutsad"
+needle = "sad"
+
+# Output
+0
+```
+
 #### Intuition:
-My favorite solution so far. The goal here is to find the first occurance of a substring in a main string. .find() and .index() and both return the first occurance of the input, but .find() returns -1 when not found while .index() return an error messge. Using find me to avoid if then logic for when the needle doesnt exist in the haystack.
+My favorite solution so far. The goal here is to find the first occurance of a substring in a main string. .find() & .index() both return the first occurance of the input, but .find() returns -1 when not found, while .index() return an error messge. Using find() avoids the if-then logic needed when the needle doesnt exist in the haystack.
 HINT: Use .find() when you're not sure if the string exists, and use .index() when you're sure it does and want an error otherwise.
 
 #### Approach:
 - use haystack.find(needle) in the return statement and we good.
-
-#### Complexity:
- - Time Complexity: ( O(n*m) ) — Worst case when they represent length of strings
- - Space Complexity: ( O(1) )
 
 #### Code:
 ```python
@@ -565,8 +611,20 @@ function strStr (haystack, needle) {
 }
 ```
 ## 54. Spiral Matrix
+### Input/Output
+```python
+# Input
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]]
+
+# Output
+[1,2,3,6,9,8,7,4,5]
+```
+
 #### Intuition:
-Break the issue into 4 parts, the top row, the last column, the last row, and the first column. One at a time, extract the numbers as a string and remove them from the matrix. Rotate through each step until the matrix is empty. 
+The goal here is to return a string of the matrix values in a sprial clockwise order. Break the issue into 4 parts, the top row, the last column, the last row, and the first column. One at a time, extract the numbers as a string and remove them from the matrix. Rotate through each step until the matrix is empty. 
 
 #### Approach:
 - iterate over values in the first row, append them to results and remove them from the matrix. 
@@ -574,10 +632,6 @@ Break the issue into 4 parts, the top row, the last column, the last row, and th
 - iterate over last row in reverse order, append them to results and remove them from the matrix.
 - iterate over the first column in reverse order, append them to results and remove them from the matrix.
 - repeat
-
-#### Complexity:
- - Time Complexity: ( O(n) ) — The size of the matrix
- - Space Complexity: ( O(1) ) — the results list
 
 #### Code:
 ```python
@@ -676,19 +730,30 @@ function spiralOrder(matrix) {
     return outputList;
 }
 ```
-
 ## 48. Rotate Image
+### Input/Output
+```python
+# Input
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]]
+
+# Output
+[
+[7,4,1],
+[8,5,2],
+[9,6,3]
+]
+```
+
 #### Intuition:
-The goal is to rotate the matrix. To do this reverse the order of the rows and then transpose the matrix so each row becomes a column
+The goal is to rotate the matrix. To do this reverse the order of the rows and then transpose the matrix so each row becomes a column.
 
 #### Approach:
 - A[::-1] to reverse column order
 - zip(*A[::-1]) to transposes the rows into columns
 - map(list, ) to convert tuples back to list
-
-#### Complexity:
- - Time Complexity: ( O(1) ) — 
- - Space Complexity: ( O(0) ) — 
 
 #### Code:
 ```python
@@ -726,8 +791,21 @@ function rotate(A) {
 ```
 
 ## 68. Text Justification
+### Input/Output
+```python
+# Input
+words = ["This", "is", "an", "example", "of", "text", "justification."]
+maxWidth = 16 
+
+# Output
+[
+"This    is    an",
+"example  of text",
+"justification.  "]
+```
+
 #### Intuition:
-Loop through each word counting the letters as you go. Add each word to a list until the count is greater than 16. Before adding this word, for each space needed to add loop through each word adding a space until no more are needed. 
+Loop through each word counting the letters as you go. Add each word to a list until the count is greater than 16. Before adding this word, loop through each word adding a space until no more are needed.
 
 #### Approach:
 - Iterate over each word
@@ -736,7 +814,6 @@ Loop through each word counting the letters as you go. Add each word to a list u
 - iterate once for each space needed to add
 - Join the edited words into a string and add to the results list. 
 - repeat until you run out of words and line join the strings together
-
 
 #### Code:
 ```python
