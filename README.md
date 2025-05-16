@@ -21,6 +21,93 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
 
+## 289. Game of Life
+### Input/Output
+```python
+# Input
+board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
+
+# Output
+output = [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+```
+
+#### Intuition:
+The goal is to apply the game of life to this board in-place. To do this solve the problem in two steps, first update each value to a temporary label based on what its current state. Then apply a map to convert the labels to the final 0/1 values. Use -1 for values that die, then use absolute value of 1 when checking later values. For values that were dead and now alive use 2. so they fail the == 1 check when looking for currently alive neighbors. Once everthing is labeled, convert values >= 1 to 1 and values < 1 to 0. 
+
+#### Approach:
+- Iterate over each matrix value
+- count the amount of live neighbors
+- Apply the approiate label (-1, 2) or keep the existing value. 
+- Once each value has been labeled map (-1, 2) to (0, 1)
+
+#### Code:
+```python
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        directions = [(1,0),(1,-1),(0,-1),(-1,-1),(-1,0),(-1,1),(0,1),(1,1)]
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                live=0
+                for x,y in directions: 
+                    if (i+x<len(board) and i+x>=0) and (j+y<len(board[0]) and j+y>=0) and abs(board[i+x][j+y])==1:
+                        live+=1
+                if board[i][j]==1 and (live<2 or live>3):    
+                    board[i][j]=-1
+                if board[i][j]==0 and live==3:                  
+                    board[i][j]=2
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                board[i][j]=1 if(board[i][j]>0) else 0
+        return board
+```
+```javascript
+var gameOfLife = function(board) {
+    const directions = [
+        [1, 0], [1, -1], [0, -1], [-1, -1],
+        [-1, 0], [-1, 1], [0, 1], [1, 1]
+    ];
+
+    const m = board.length;
+    const n = board[0].length;
+
+    // First pass: mark transitions using temporary states
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            let live = 0;
+
+            for (let [x, y] of directions) {
+                const ni = i + x, nj = j + y;
+                if (
+                    ni >= 0 && ni < m &&
+                    nj >= 0 && nj < n &&
+                    Math.abs(board[ni][nj]) === 1
+                ) {
+                    live++;
+                }
+            }
+
+            if (board[i][j] === 1 && (live < 2 || live > 3)) {
+                board[i][j] = -1; // Live to dead
+            }
+
+            if (board[i][j] === 0 && live === 3) {
+                board[i][j] = 2; // Dead to live
+            }
+        }
+    }
+
+    // Second pass: finalize state updates
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            board[i][j] = board[i][j] > 0 ? 1 : 0;
+        }
+    }
+};
+```
+
 ## 73. Set Matrix Zeroes
 ### Input/Output
 ```python
