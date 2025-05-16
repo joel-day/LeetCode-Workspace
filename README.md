@@ -511,6 +511,109 @@ function spiralOrder(matrix) {
 }
 ```
 
+## 48. Rotate Image
+#### Intuition:
+The goal is to rotate the matrix. To do this reverse the order of the rows and then transpose the matrix so each row becomes a column
+
+#### Approach:
+- A[::-1] to reverse column order
+- zip(*A[::-1]) to transposes the rows into columns
+- map(list, ) to convert tuples back to list
+
+#### Complexity:
+ - Time Complexity: ( O(1) ) — 
+ - Space Complexity: ( O(0) ) — 
+
+#### Code:
+```python
+def rotate(A):
+    A[:] = map(list, zip(*A[::-1]))
+
+    return A
+```
+```javascript
+function rotate(A) {
+    const n = A.length;
+
+    // Reverse the rows
+    A.reverse();
+
+    // Transpose: create a new array with rotated values
+    const rotated = [];
+
+    for (let i = 0; i < n; i++) {
+        rotated.push([]);
+        for (let j = 0; j < n; j++) {
+            rotated[i].push(A[j][i]);
+        }
+    }
+
+    // Copy back into A (in-place)
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            A[i][j] = rotated[i][j];
+        }
+    }
+
+    return A;
+}
+```
+
+## 68. Text Justification
+#### Intuition:
+Loop through each word counting the letters as you go. Add each word to a list until the count is greater than 16. Before adding this word, for each space needed to add loop through each word adding a space until no more are needed. 
+
+#### Approach:
+- Iterate over each word
+- Count the amount of letters of each word until you go over 16, 
+- For each of these words loop through and add a space to the end, 
+- iterate once for each space needed to add
+- Join the edited words into a string and add to the results list. 
+- repeat until you run out of words and line join the strings together
+
+
+#### Code:
+```python
+def fullJustify(self, words, maxWidth):
+    res, cur, num_of_letters = [], [], 0
+    for w in words:
+        if num_of_letters + len(w) + len(cur) > maxWidth:
+            for i in range(maxWidth - num_of_letters):
+                cur[i%(len(cur)-1 or 1)] += ' '
+            res.append(''.join(cur))
+            cur, num_of_letters = [], 0
+        cur += [w]
+        num_of_letters += len(w)
+    return res + [' '.join(cur).ljust(maxWidth)]
+```
+```javascript
+var fullJustify = function(words, maxWidth) {
+
+    const res = [];
+    let cur = [];
+    let numOfLetters = 0;
+
+    for (const w of words) {
+        if (numOfLetters + w.length + cur.length > maxWidth) {
+            for (let i = 0; i < maxWidth - numOfLetters; i++) {
+                // Add space to word at index i % (cur.length - 1 or 1)
+                const index = cur.length > 1 ? i % (cur.length - 1) : 0;
+                cur[index] += ' ';
+            }
+            res.push(cur.join(''));
+            cur = [];
+            numOfLetters = 0;
+        }
+        cur.push(w);
+        numOfLetters += w.length;
+    }
+
+    // Last line: join with single spaces, then pad right with spaces to maxWidth
+    res.push(cur.join(' ').padEnd(maxWidth, ' '));
+    return res;
+};
+```
+
 # Workspace Set-up
 
 ```bash

@@ -123,4 +123,30 @@ export class Solution {
         return outputList;
     }
 
+    rotate(A) {
+        const n = A.length;
+
+        // Reverse the rows
+        A.reverse();
+
+        // Transpose: create a new array with rotated values
+        const rotated = [];
+
+        for (let i = 0; i < n; i++) {
+            rotated.push([]);
+            for (let j = 0; j < n; j++) {
+                rotated[i].push(A[j][i]);
+            }
+        }
+
+        // Copy back into A (in-place)
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                A[i][j] = rotated[i][j];
+            }
+        }
+
+        return A;
+    }
+
 }
