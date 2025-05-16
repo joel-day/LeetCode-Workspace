@@ -21,8 +21,8 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
 
-## 289. Game of Life
-### Input/Output
+## ＃139 - Game of Life 💥
+#### Input/Output
 ```python
 # Input
 board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
@@ -107,9 +107,8 @@ var gameOfLife = function(board) {
     }
 };
 ```
-
-## 73. Set Matrix Zeroes
-### Input/Output
+## ＃140 - Set Matrix Zeroes 💥
+#### Input/Output
 ```python
 # Input
 matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
@@ -187,9 +186,8 @@ var setZeroes = function(matrix) {
     }
 };
 ```
-
-# 12. Integer to Roman
-### Input/Output
+## ＃141 - Integer to Roman 💥
+#### Input/Output
 ```python
 # Input
 num = 3749
@@ -255,9 +253,8 @@ var intToRoman = function(num) {
     return result;
 };
 ```
-
-# 58. Length of Last Word
-### Input/Output
+## ＃142 - Length of Last Word 💥
+#### Input/Output
 ```python
 # Input
 s = "Hello World"
@@ -304,9 +301,8 @@ class Solution(object):
         return lastword.length;
     }
 ```
-
-# 14. Longest Common Prefix
-### Input/Output
+## ＃143 - Longest Common Prefix 💥
+#### Input/Output
 ```python
 # Input
 strs = ["flower","flow","flight"]
@@ -375,9 +371,8 @@ longestCommonPrefix(strs = []) {
     return longestPrefix;
 }
 ```
-
-# 151. Reverse Words in a String
-### Input/Output
+## ＃144 - Reverse Words in a String 💥
+#### Input/Output
 ```python
 # Input
 s = "the sky is blue"
@@ -426,8 +421,8 @@ reverseWords(s) {
     return reverse_string;
 }
 ```
-## 6. Zigzag Conversion
-### Input/Output
+## ＃145 - Zigzag Conversion 💥
+#### Input/Output
 ```python
 # Input
 s = "PAYPALISHIRING"
@@ -483,8 +478,8 @@ var convert = function(s, numRows) {
     return finalString;
 };
 ```
-## 36. Valid Sudoku
-### Input/Output
+## ＃146 - Valid Sudoku 💥
+#### Input/Output
 ```python
 # Input
 board = [
@@ -582,8 +577,8 @@ var isValidSudoku = function(board) {
     return true;
 };
 ```
-## 28. Find the Index of the First Occurrence in a String
-### Input/Output
+## ＃147 - Find the Index of the First Occurrence in a String 💥
+#### Input/Output
 ```python
 # Input
 haystack = "sadbutsad"
@@ -610,8 +605,8 @@ function strStr (haystack, needle) {
     return haystack.indexOf(needle);
 }
 ```
-## 148. Spiral Matrix
-### Input/Output
+## ＃148 - Spiral Matrix 💥
+#### Input/Output
 ```python
 # Input
 matrix = [
@@ -730,8 +725,8 @@ function spiralOrder(matrix) {
     return outputList;
 }
 ```
-## 149. Rotate Image
-### Input/Output
+## ＃149 - Rotate Image 💥
+#### Input/Output
 ```python
 # Input
 matrix = [
@@ -790,8 +785,8 @@ function rotate(A) {
 }
 ```
 
-## ＃150. Text Justification 💥
-### Input/Output
+## ＃150 - Text Justification 💥
+#### Input/Output
 ```python
 # Input
 words = ["This", "is", "an", "example", "of", "text", "justification."]
