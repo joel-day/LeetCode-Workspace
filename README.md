@@ -20,7 +20,757 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 - I prioritize understanding the logic over memorization of specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
+## ＃122 - Merge Sorted Array 💥
+### Input/Output
+```python
+# Input
+nums1 = [1,2,3,0,0,0]
+m = 3
+nums2 = [2,5,6]
+n = 3
 
+# Output
+[1,2,2,3,5,6]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify nums1 in-place instead.
+        """
+        if n == 0 :return
+        len1 = len(nums1)
+        end_idx = len1-1
+        while n > 0 and m > 0 :
+            if nums2[n-1] >= nums1[m-1]:
+                nums1[end_idx] = nums2[n-1]
+                n-=1
+            else:
+                nums1[end_idx] = nums1[m-1]
+                m-=1
+            end_idx-=1
+        while n > 0:
+
+            nums1[end_idx] = nums2[n-1]
+            n-=1
+            end_idx-=1
+```
+```javascript
+
+```
+## ＃123 - Remove Element 💥
+### Input/Output
+```python
+# Input
+nums = [3,2,2,3]
+val = 3
+
+# Output
+[2,2]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        for i in range(nums.count(val)):
+            nums.remove(val)
+        return len(nums)
+```
+```javascript
+
+```
+## ＃124 - Remove Duplicates from Sorted Array 💥
+### Input/Output
+```python
+# Input
+nums = [1,1,2]
+
+
+# Output
+[1,2]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+
+        k = 1 
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i-1]:
+                nums[k] = nums[i]
+                k+=1
+        return k
+```
+```javascript
+
+```
+## ＃125 - Remove Duplicates from Sorted Array II 💥
+### Input/Output
+```python
+# Input
+nums = [1,1,1,2,2,3]
+
+# Output
+[1,1,2,2,3]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution:
+    def removeDuplicates(self, nums):
+        count = 0
+        current = 1
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:
+                count = 0
+                nums[current] = nums[i]
+                current += 1
+            else:
+                count += 1
+                if count <= 1:
+                    nums[current] = nums[i]
+                    current += 1
+        return current
+```
+```javascript
+
+```
+## ＃126 - Majority Element 💥
+### Input/Output
+```python
+# Input
+nums = [3,2,3]
+
+# Output
+3
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count = 0
+        majority = 0
+
+        # Traverse through the list
+        for i in range(len(nums)):
+            if count == 0 and majority != nums[i]:
+                # If count is 0 and majority candidate is different from current element,
+                # update the majority candidate and set count to 1
+                majority = nums[i]
+                count += 1
+            elif majority == nums[i]:
+                # If current element is the same as the majority candidate,
+                # increment the count
+                count += 1
+            else:
+                # If current element is different from the majority candidate,
+                # decrement the count
+                count -= 1
+
+        return majority
+```
+```javascript
+
+```
+## ＃127 - Rotate Array 💥
+### Input/Output
+```python
+# Input
+nums = [1,2,3,4,5,6,7]
+k = 3
+
+# Output
+[5,6,7,1,2,3,4]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def rotate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        k = k % n
+        if k == 0: return
+
+        temp = nums[-k:]
+        nums[k:] = nums[:-k]
+        nums[:k] = temp 
+```
+```javascript
+
+```
+## ＃128 - Best Time to Buy and Sell Stock 💥
+### Input/Output
+```python
+# Input
+prices = [7,1,5,3,6,4]
+
+# Output
+5
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        min_price = prices[0]
+        max_profit = 0
+        
+        for price in prices[1:]:
+            max_profit = max(max_profit, price - min_price)
+            min_price = min(min_price, price)
+            
+        return max_profit
+```
+```javascript
+
+```
+## ＃129 - Best Time to Buy and Sell Stock II 💥
+### Input/Output
+```python
+# Input
+prices = [7,1,5,3,6,4]
+
+# Output
+7
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        holding_stock = 0
+        stock_value = 0 
+        profit = 0
+
+        for i in range(0, len(prices) - 1):
+            print(i, prices[i])
+
+        
+
+
+            if holding_stock == 0:
+
+                if prices[i] < prices[i+1]:
+
+                    holding_stock = 1
+
+                    stock_value = prices[i]
+
+            else:
+
+                
+                if prices[i+1]  < prices[i]:
+
+                    profit += prices[i] - stock_value
+
+                    stock_value = 0
+
+                    holding_stock = 0
+
+
+            print(holding_stock, stock_value, profit)
+
+        if holding_stock == 1:
+
+            profit += prices[-1] - stock_value
+
+            stock_value = 0
+
+            holding_stock = 0
+
+
+        return profit
+```
+```javascript
+
+```
+## ＃130 - Jump Game 💥
+### Input/Output
+```python
+# Input
+nums = [2,3,1,1,4]
+
+# Output
+true
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def canJump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        possibility = False
+        final_distance = len(nums) - 1
+
+        if final_distance < 1:
+            return True
+
+        if nums[0] == 0:
+            return False
+
+        max_distance = 0
+
+        for i in range(0,len(nums)-1):
+            distance = max(max_distance, nums[i])
+
+            if distance == 0:
+                return False
+
+            if distance >= final_distance:
+                return True
+
+            max_distance = distance - 1
+
+            final_distance -= 1
+```
+```javascript
+
+```
+
+## ＃131 - Jump Game II 💥
+### Input/Output
+```python
+# Input
+nums = [2,3,1,1,4]
+
+# Output
+2
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def jump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        jumps = 0
+        current_end = 0
+        max_distance = 0
+
+        for i in range(0, len(nums)-1):
+            max_distance = max(max_distance, i + nums[i])
+
+            if i == current_end:
+                jumps += 1
+                current_end = max_distance
+
+        return jumps
+```
+```javascript
+
+```
+## ＃132 - H-Index 💥
+### Input/Output
+```python
+# Input
+citations = [3,0,6,1,5]
+
+# Output
+3
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def hIndex(self, citations):
+        """
+        :type citations: List[int]
+        :rtype: int
+        """
+        h = 0
+        count = 0
+
+
+        for current_item in citations:
+
+
+            for item in citations:
+                if item >= current_item:
+                    count += 1
+
+            if count >= current_item:
+                h = max(current_item, h)
+
+            elif count != 0:
+                h = max(count, h)
+
+
+            count = 0
+
+        return h
+```
+```javascript
+```
+## ＃133 - Insert Delete GetRandom O(1) 💥
+### Input/Output
+```python
+# Input
+["RandomizedSet","insert","remove","insert","getRandom","remove","insert","getRandom"]
+[[],[1],[2],[2],[],[1],[2],[]]
+
+# Output
+[null,true,false,true,1,true,false,2]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+import random
+
+class RandomizedSet:
+    def __init__(self):
+        self.val_to_index = {}  # Dictionary to store value -> index mapping
+        self.values = []  # List to store values
+
+    def insert(self, val):  # Removed type hints
+        if val in self.val_to_index:
+            return False  # Value already exists, so don't insert
+        
+        self.values.append(val)  # Add value to list
+        self.val_to_index[val] = len(self.values) - 1  # Store index in dictionary
+        return True
+
+    def remove(self, val):  # Removed type hints
+        if val not in self.val_to_index:
+            return False  # Value not in set, so can't remove
+        
+        # Get index of element to remove
+        index_to_remove = self.val_to_index[val]
+        last_element = self.values[-1]  # Get last element in the list
+
+        # Swap the last element with the one to remove
+        self.values[index_to_remove] = last_element
+        self.val_to_index[last_element] = index_to_remove
+
+        # Remove last element
+        self.values.pop()
+        del self.val_to_index[val]
+
+        return True
+
+    def getRandom(self):  # Removed type hints
+        return random.choice(self.values)  # Get random element from list
+```
+```javascript
+```
+## ＃134 - Product of Array Except Self 💥
+### Input/Output
+```python
+# Input
+nums = [1,2,3,4]
+
+# Output
+[24,12,8,6]
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution:
+    def productExceptSelf(self, nums):
+        product = 1
+        zeroCount = 0
+        n = len(nums)
+        result = [0] * n
+
+        # Step 1: Calculate product of all non-zero elements and count zeros
+        for num in nums:
+            if num == 0:
+                zeroCount += 1
+            else:
+                product *= num
+
+        # Step 2: Handle the cases based on zero count
+        if zeroCount > 1:
+            return result  # More than one zero, all elements will be zero
+        if zeroCount == 1:
+            # If there's exactly one zero, the product of all other elements is placed in that position
+            for i in range(n):
+                if nums[i] == 0:
+                    result[i] = product
+        else:
+            # If there are no zeros, divide the total product by each element
+            for i in range(n):
+                result[i] = product // nums[i]
+
+        return result
+        
+```
+```javascript
+```
+## ＃135 - Gas Station 💥
+### Input/Output
+```python
+# Input
+gas = [1,2,3,4,5]
+cost = [3,4,5,1,2]
+
+# Output
+3
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def canCompleteCircuit(self, gas, cost):
+        if sum(gas) < sum(cost):
+            return -1
+
+        start = 0
+        currentGas = 0
+
+        for i in range(len(gas)):
+            currentGas += (gas[i] - cost[i])
+            if currentGas < 0:
+                currentGas = 0
+                start = i + 1
+        return start
+```
+```javascript
+```
+## ＃136 - Candy 💥
+### Input/Output
+```python
+# Input
+ratings = [1,0,2]
+
+# Output
+5
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution:
+    def candy(self, ratings):
+        n = len(ratings)
+        candies = [1] * n
+        
+        for i in range(1, n):
+            if ratings[i] > ratings[i - 1]:
+                candies[i] = candies[i - 1] + 1
+        
+        for i in range(n - 2, -1, -1):
+            if ratings[i] > ratings[i + 1]:
+                candies[i] = max(candies[i], candies[i + 1] + 1)
+        
+        return sum(candies)
+```
+```javascript
+```
+## ＃137 - Trapping Rain Water 💥
+### Input/Output
+```python
+# Input
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+
+# Output
+6
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+
+    def trap(self, height):
+        n = len(height)
+        
+        result = 0
+        maxI, waterBlock = 0,0
+        for i in range(1,n):
+            if height[i] >= height[maxI]:
+                result += waterBlock
+                waterBlock = 0
+                maxI = i
+            waterBlock += (height[maxI] - height[i])
+
+        end = maxI - 1
+        maxI, waterBlock = n-1,0
+        for i in range(n-2,end,-1):
+            if height[i] >= height[maxI]:
+                result += waterBlock
+                waterBlock = 0
+                maxI = i
+            waterBlock += (height[maxI] - height[i])
+
+        return result
+```
+```javascript
+```
+## ＃138 - Roman to Integer 💥
+### Input/Output
+```python
+# Input
+s = "III"
+
+# Output
+3
+```
+
+#### Intuition:
+
+
+#### Approach:
+
+
+#### Code:
+```python
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        rom_to_int = {
+            'I': 1, 'V':5, 'X':10, 'L':50,
+            'C':100, 'D':500, 'M':1000}
+
+        result = 0
+
+        for i in range(len(s)):
+            if i + 1 < len(s) and rom_to_int[s[i]] < rom_to_int[s[i + 1]]:
+                result -= rom_to_int[s[i]]
+            else:
+                result += rom_to_int[s[i]]
+        return result
+```
+```javascript
+```
 ## ＃139 - Game of Life 💥
 #### Input/Output
 ```python
