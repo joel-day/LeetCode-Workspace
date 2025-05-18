@@ -34,41 +34,50 @@ n = 3
 ```
 
 #### Intuition:
-
+The goal here is the combine two lists both sorted in asc order into one sorted list. The challenge is to do it in place. So iterate across the last values of each str from the end and add the larger of the two to the end of the first string. The key here is that the first list will have placeholders at the end to accomodate for the extra letter in the second string. Make sure to start at the end to be able to do it in place. 
 
 #### Approach:
-
+- create variables for each of the index (m, n, and m +n)
+- loop over valkues in the n list from the back and test if its greater than the same index in the m list.
+- add the higher value to the end of the original list
+- subtract one from the index varibale associated with the str with the larger value
+- repeat
 
 #### Code:
 ```python
-class Solution(object):
-    def merge(self, nums1, m, nums2, n):
-        """
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: None Do not return anything, modify nums1 in-place instead.
-        """
-        if n == 0 :return
-        len1 = len(nums1)
-        end_idx = len1-1
-        while n > 0 and m > 0 :
-            if nums2[n-1] >= nums1[m-1]:
-                nums1[end_idx] = nums2[n-1]
-                n-=1
-            else:
-                nums1[end_idx] = nums1[m-1]
-                m-=1
-            end_idx-=1
-        while n > 0:
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        midx = m - 1
+        nidx = n - 1 
+        right = m + n - 1
 
-            nums1[end_idx] = nums2[n-1]
-            n-=1
-            end_idx-=1
+        while nidx >= 0:
+            if midx >= 0 and nums1[midx] > nums2[nidx]:
+                nums1[right] = nums1[midx]
+                midx -= 1
+            else:
+                nums1[right] = nums2[nidx]
+                nidx -= 1
+
+            right -= 1
 ```
 ```javascript
+var merge = function(nums1, m, nums2, n) {
+    let midx = m - 1;
+    let nidx = n - 1;
+    let right = m + n - 1;
 
+    while (nidx >= 0) {
+        if (midx >= 0 && nums1[midx] > nums2[nidx]) {
+            nums1[right] = nums1[midx];
+            midx--;
+        } else {
+            nums1[right] = nums2[nidx];
+            nidx--;
+        }
+        right--;
+    } 
+};
 ```
 ## ＃123 - Remove Element 💥
 ### Input/Output
@@ -82,10 +91,12 @@ val = 3
 ```
 
 #### Intuition:
-
+The goal here is to remove all instances of a value in a string in place. To do this first count how many times that value appears, then remove that value from the list thast many times. Once removed calculate the length using len(). 
 
 #### Approach:
-
+- Count the amount of times the value to remove appears
+- for each of these times, remove that value from the list. 
+- then return the length of that list after removal
 
 #### Code:
 ```python
@@ -101,7 +112,12 @@ class Solution(object):
         return len(nums)
 ```
 ```javascript
-
+var removeElement = function(nums, val) {
+    while (nums.includes(val)) {
+        nums.splice(nums.indexOf(val), 1);
+    }
+    return nums.length;
+};
 ```
 ## ＃124 - Remove Duplicates from Sorted Array 💥
 ### Input/Output
