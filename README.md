@@ -34,14 +34,15 @@ n = 3
 ```
 
 #### Intuition:
-The goal here is the combine two lists both sorted in asc order into one sorted list. The challenge is to do it in place. So iterate across the last values of each str from the end and add the larger of the two to the end of the first string. The key here is that the first list will have placeholders at the end to accomodate for the extra letter in the second string. Make sure to start at the end to be able to do it in place. 
+The goal here is to combine two lists both sorted in asc order into one sorted list. The challenge is to do it in place. So, iterate across the last values of each str from the end and add the larger of the two to the end of the first string. The key here is that the first list will have placeholders at the end to accommodate for the extra letter in the second string. Make sure to start at the end to be able to do it in place. 
 
 #### Approach:
 - create variables for each of the index (m, n, and m +n)
-- loop over valkues in the n list from the back and test if its greater than the same index in the m list.
+- loop over values in the n list from the back and test if it’s greater than the same index in the m list.
 - add the higher value to the end of the original list
-- subtract one from the index varibale associated with the str with the larger value
+- subtract one from the index variable associated with the str with the larger value
 - repeat
+
 
 #### Code:
 ```python
@@ -91,7 +92,7 @@ val = 3
 ```
 
 #### Intuition:
-The goal here is to remove all instances of a value in a string in place. To do this first count how many times that value appears, then remove that value from the list thast many times. Once removed calculate the length using len(). 
+The goal here is to remove all instances of a value in a string in place. To do this first count how many times that value appears, then remove that value from the list that many times. Once removed calculate the length using len(). 
 
 #### Approach:
 - Count the amount of times the value to remove appears
@@ -131,9 +132,11 @@ nums = [1,1,2]
 ```
 
 #### Intuition:
-
+The goal here is to remove the duplicates from an array in place and return the length without duplicates
 
 #### Approach:
+- Create a variable to track the amount of non-duplicates
+- loop through each value (skipping the first) and if it equals the value before do nothing and moves on. If it is different, then add it to the k's position and add 1 to k. 
 
 
 #### Code:
@@ -155,7 +158,21 @@ class Solution(object):
         return k
 ```
 ```javascript
+function removeDuplicates(nums) {
+    if (nums.length === 0) {
+        return 0;
+    }
 
+    let k = 1;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[i - 1]) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+
+    return k;
+}
 ```
 ## ＃125 - Remove Duplicates from Sorted Array II 💥
 ### Input/Output
@@ -168,10 +185,12 @@ nums = [1,1,1,2,2,3]
 ```
 
 #### Intuition:
-
+The goal here is to remove the values from a list in place such that no value appears more than two times. 
 
 #### Approach:
-
+- First create a current variable to track the number of values kept and a current value which will handle the more than twice logic
+- Then loop through each word, if it doesn’t equal the one before, change the value where index = current. Then add one to the current.
+- If it is the same as the one before, add 1 to count, and only if count is 1 or less add the value where index = current.
 
 #### Code:
 ```python
@@ -192,7 +211,26 @@ class Solution:
         return current
 ```
 ```javascript
+var removeDuplicates = function(nums) {
+    let count = 0;
+    let current = 1;
 
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[i - 1]) {
+            count = 0;
+            nums[current] = nums[i];
+            current++;
+        } else {
+            count++;
+            if (count <= 1) {
+                nums[current] = nums[i];
+                current++;
+            }
+        }
+    }
+
+    return current;
+};
 ```
 ## ＃126 - Majority Element 💥
 ### Input/Output
@@ -205,9 +243,13 @@ nums = [3,2,3]
 ```
 
 #### Intuition:
-
+The goal here is to find the majority element. There is guaranteed to be a majority element where over half the values are that element. The trick is assigning the first value as the majority, adding one whenever you see it and subtracting it when you don’t. When the count hits zero, reassign the majority element to that value. This works because there always is a value appearing more than half the time. 
 
 #### Approach:
+- Traverse through the list
+- If count is 0 and majority candidate is different from current element, update the majority candidate and set count to 1
+- If the current element is the same as the majority candidate, increase the count
+- If the current element is different from the majority candidate, decrement the count
 
 
 #### Code:
@@ -240,7 +282,25 @@ class Solution(object):
         return majority
 ```
 ```javascript
+var majorityElement = function(nums) {
 
+    let count = 0;
+    let majority = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (count === 0 && majority !== nums[i]) {
+            majority = nums[i];
+            count += 1;
+        } else if (majority === nums[i]) {
+            count += 1;
+        } else {
+            count -= 1;
+        }
+    }
+
+    return majority;
+
+};
 ```
 ## ＃127 - Rotate Array 💥
 ### Input/Output
@@ -254,10 +314,13 @@ k = 3
 ```
 
 #### Intuition:
-
+The goal here is to rotate (shift) the values down x indexes. To solve this use slice assignment. First take the x values to shift off of the back of the list and put them on the front. One small hurdle is you can replace first few list values beofre you move them. So creating a temp list is required. 
 
 #### Approach:
-
+- find the remaider of k and n. 
+- create a temp list holding the last k values in the list. 
+- move the first len(nums) - k values forward k spaces. 
+- change the first k values of the list to the temp strign values
 
 #### Code:
 ```python
@@ -277,7 +340,21 @@ class Solution(object):
         nums[:k] = temp 
 ```
 ```javascript
+var rotate = function(nums, k) {
 
+    const n = nums.length;
+    k = k % n;
+    if (k === 0) return;
+
+    const temp = nums.slice(-k);         // Copy the last k elements
+    for (let i = n - 1; i >= k; i--) {
+        nums[i] = nums[i - k];           // Shift elements right by k
+    }
+    for (let i = 0; i < k; i++) {
+        nums[i] = temp[i];               // Insert rotated elements
+    }
+
+};
 ```
 ## ＃128 - Best Time to Buy and Sell Stock 💥
 ### Input/Output
@@ -290,10 +367,13 @@ prices = [7,1,5,3,6,4]
 ```
 
 #### Intuition:
-
+Find the most amount you could have buying and selling one stock one time over a given period. To do this loop through keeping track of the lowest price so far, at each step subtract the days price from the lowest so far to see the profit. return the max of these values. 
 
 #### Approach:
-
+- create a min_price variable staring at index 0. 
+- loop through each following days price 
+- subtract the days price from the min_price, if this is larger any before, set is as max_profit
+- update the min_price using min
 
 #### Code:
 ```python
@@ -313,7 +393,21 @@ class Solution(object):
         return max_profit
 ```
 ```javascript
+var maxProfit = function(prices) {
 
+    if (prices.length === 0) return 0;
+
+    let minPrice = prices[0];
+    let maxProfit = 0;
+
+    for (let i = 1; i < prices.length; i++) {
+        maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+        minPrice = Math.min(minPrice, prices[i]);
+    }
+
+    return maxProfit;
+
+};
 ```
 ## ＃129 - Best Time to Buy and Sell Stock II 💥
 ### Input/Output
@@ -326,10 +420,13 @@ prices = [7,1,5,3,6,4]
 ```
 
 #### Intuition:
-
+Find the most profit you can make on one stock where you can only hold one stock at a time. youcan sell and buy on the same day. find the max profit. 
 
 #### Approach:
-
+- loop through each day. 
+- if you are arnt holding a stock and the price is going up - buy
+- if you are holding stock and the price is going down - sell
+- last bit of code to sell the last stock. 
 
 #### Code:
 ```python
@@ -383,7 +480,35 @@ class Solution(object):
         return profit
 ```
 ```javascript
+var maxProfit = function(prices) {
 
+    let holdingStock = false;
+    let stockValue = 0;
+    let profit = 0;
+
+    for (let i = 0; i < prices.length - 1; i++) {
+        // console.log(i, prices[i]); // Optional debug
+
+        if (!holdingStock) {
+            if (prices[i] < prices[i + 1]) {
+                holdingStock = true;
+                stockValue = prices[i];
+            }
+        } else {
+            if (prices[i + 1] < prices[i]) {
+                profit += prices[i] - stockValue;
+                holdingStock = false;
+                stockValue = 0;
+            }
+        }
+    }
+
+    if (holdingStock) {
+        profit += prices[prices.length - 1] - stockValue;
+    }
+
+    return profit;
+};
 ```
 ## ＃130 - Jump Game 💥
 ### Input/Output
@@ -396,10 +521,15 @@ true
 ```
 
 #### Intuition:
-
+The goal is to see if you could reach the end of the list if you can only jump as many times as the value at that position. To do this, at each stage keep track of the farthest you can go (using max of the current value and current max) and if this value equals the total distance - its possible. 
 
 #### Approach:
-
+- return true is list is empty and flase if the first value is 0.
+- initiate max distance variable
+- Loop through each number and find the max of itself and the current max_dstance variable
+- this is the idstance and if this is 0 return false, if it is greater than the totoal length o flist return true. 
+- otherwise subtract one from the max_distance and final_distance (payment to take a step, and one less to go)
+- repeat
 
 #### Code:
 ```python
@@ -434,7 +564,38 @@ class Solution(object):
             final_distance -= 1
 ```
 ```javascript
+var canJump = function(nums) {
 
+    let possibility = false;
+    let finalDistance = nums.length - 1;
+
+    if (finalDistance < 1) {
+        return true;
+    }
+
+    if (nums[0] === 0) {
+        return false;
+    }
+
+    let maxDistance = 0;
+
+    for (let i = 0; i < nums.length - 1; i++) {
+        let distance = Math.max(maxDistance, nums[i]);
+
+        if (distance === 0) {
+            return false;
+        }
+
+        if (distance >= finalDistance) {
+            return true;
+        }
+
+        maxDistance = distance - 1;
+        finalDistance -= 1;
+    }
+
+    return false;
+};
 ```
 
 ## ＃131 - Jump Game II 💥
@@ -451,7 +612,12 @@ nums = [2,3,1,1,4]
 
 
 #### Approach:
-
+- create max_distance and current_end variables
+- loop through each number
+- max_distance = max(max_distance, i + nums[i]) - add i because at each iteration it is one position closer to end. 
+- at each step update the max_distance and check if at the current end
+- if so add a jump and update current_end to = max_distance
+- repeat
 
 #### Code:
 ```python
@@ -475,6 +641,21 @@ class Solution(object):
         return jumps
 ```
 ```javascript
+function jump(nums) {
+    let jumps = 0;
+    let currentEnd = 0;
+    let maxDistance = 0;
+
+    for (let i = 0; i < nums.length - 1; i++) {
+        maxDistance = Math.max(maxDistance, i + nums[i]);
+
+        if (i === currentEnd) {
+            jumps++;
+            currentEnd = maxDistance;
+        }
+    }
+    return jumps;
+}
 
 ```
 ## ＃132 - H-Index 💥
@@ -488,10 +669,12 @@ citations = [3,0,6,1,5]
 ```
 
 #### Intuition:
-
+The goal here is to find the h index for a researches, where h is the at least h papers that have been published at least 8 times. So for each paper, count how many other papers have <= the amount in the current one, and if this is greater than the value of the current item, then set h to max(current_h, current_value)
 
 #### Approach:
-
+- loop over each paper
+- loop over each paper and coun the amount of other paper have <= the amount of this one
+- if it is larger than the value itself, set h to the max of the current h and this current value
 
 #### Code:
 ```python
@@ -524,6 +707,28 @@ class Solution(object):
         return h
 ```
 ```javascript
+var hIndex = function(citations) {
+    let h = 0;
+    let count = 0;
+
+    for (let currentItem of citations) {
+        for (let item of citations) {
+            if (item >= currentItem) {
+                count += 1;
+            }
+        }
+
+        if (count >= currentItem) {
+            h = Math.max(currentItem, h);
+        } else if (count !== 0) {
+            h = Math.max(count, h);
+        }
+
+        count = 0;
+    }
+
+    return h;
+};
 ```
 ## ＃133 - Insert Delete GetRandom O(1) 💥
 ### Input/Output
