@@ -667,13 +667,12 @@ citations = [3,0,6,1,5]
 # Output
 3
 ```
-
 #### Intuition:
-The goal here is to find the h index for a researches, where h is the at least h papers that have been published at least 8 times. So for each paper, count how many other papers have <= the amount in the current one, and if this is greater than the value of the current item, then set h to max(current_h, current_value)
+The goal here is to find the h index for a researcher, where h is the at least h papers that have been published at least 8 times. So, for each paper, count how many other papers have <= the amount in the current one, and if this is greater than the value of the current item, then set h to max(current_h, current_value)
 
 #### Approach:
 - loop over each paper
-- loop over each paper and coun the amount of other paper have <= the amount of this one
+- loop over each paper and count the amount of other paper have <= the amount of this one
 - if it is larger than the value itself, set h to the max of the current h and this current value
 
 #### Code:
@@ -742,12 +741,12 @@ var hIndex = function(citations) {
 ```
 
 #### Intuition:
-The goal is to implement a class that can add remove and display a random number from a list. The class initiates a value_to_index dictionary and a values list. Using these varibales allows me to shift the value to remove to the end of the list and use pop to remove as opposed to iterating ans shifting the list. The dictionary and list will not always stay in the same order. 
+The goal is to implement a class that can add remove and display a random number from a list. The class initiates a value_to_index dictionary and a values list. Using these variables allows me to shift the value to remove to the end of the list and use pop to remove as opposed to iterating and shifting the list. The dictionary and list will not always stay in the same order. 
 
 #### Approach:
 - initiate a value_to_index dictionary and a values list.
 - if the command is to insert add it to the list and dict and return true if it is not in the list. return false if it is.
-- for del if it is not present return false, it it is find its location via the index in the dict and then swap it with the value at the end. then remove it using pop for the list and del for the index. 
+- for del - if it is not present return false, otherwise it finds its location via the index in the dict and then swap it with the value at the end. then remove it using pop for the list and del for the index. 
 - return random element from list
 
 #### Code:
@@ -836,12 +835,12 @@ nums = [1,2,3,4]
 ```
 
 #### Intuition:
-The goal here is to return a list where each element is the product of all the all the other values besides itself. To do this in place, a product varible is created = to all the values mulitplied. For each output values instead of multplying the others together, just divide the product variable by the values. The last problem to overcome is the 0s. If more than 1 all values are 0, if 1 zero, the index with the 0 will be the only non-zero output value. 
+The goal here is to return a list where each element is the product of all the all the other values besides itself. To do this in place, a product variable is created = to all the values multiplied. For each output values instead of multiplying the others together, just divide the product variable by the values. The last problem to overcome is the 0s. If more than 1 all values are 0, if 1 zero, the index with the 0 will be the only non-zero output value. 
 
 #### Approach:
-- count zeros and the calculate the total product of all varibales
-- if more than 1 zero return a zist of all 0s. 
-- if exactly one zero return a list of nearly all 0's, just the location of the 0 will be the product of all the others. 
+- count zeros and calculate the total product of all variables
+- if more than 1 zero return a list of all 0s. 
+- if exactly one zero returns a list of nearly all 0's, just the location of the 0 will be the product of all the others. 
 - (after taking care of 0 instances) return a list where each value is the product/ value. 
 
 #### Code:
@@ -906,15 +905,15 @@ cost = [3,4,5,1,2]
 # Output
 3
 ```
-
 #### Intuition:
-The goal here is to see if it is possible to traverse throught the list given the cost to move (cost) and the enegery you get (gas). To move to the next city there needs to bhe more gas than cost. If there is less gas than the cost across the whole list return -1. Otherwise it is possible, just have to find the string index. To do this loop through the index at each starting point. calulcate the gas at each step, if it ever ends under 0, move to the next possible starting point. There exists only one solution (provided). 
+The goal here is to see if it is possible to travel through the list given the cost to move (cost) and the energy you get (gas). To move to the next city there needs to be more gas than costs. If there is less gas than the cost across the whole list return -1. Otherwise, it is possible, just find the string index. To do this, loop through the index at each starting point. calculate the gas at each step, if it ever ends under 0, move to the next possible starting point. There is only one solution (provided). 
 
 #### Approach:
 - check if total gas > cost. If not return 0 - it is not possible.
-- Next create a start varibale (output) and a current_gas varible
-- to find the starting index, loop through each starting point and at each step, calulate the current gas(gas-cost)
-- if it ever end a step < 0, exit. The starting index will never go under 0
+- Next create a start variable (output) and a current gas variable
+- to find the starting index, loop through each starting point and at each step, calculate the current gas(gas-cost)
+- if it ever ends a step < 0, exit. The starting index will never go under 0
+
 
 #### Code:
 ```python
@@ -960,7 +959,7 @@ ratings = [1,0,2]
 ```
 
 #### Intuition:
-The goal here is to distribute candies to kids. Where each kid gets at least one but kids with a higher rating than their neighbors should get more. To do this first give one candy to each kid. Then from left to right, if the kid has more candy than th ekid to their left, give them one more candy than the nighboring kid. Then go from right to left. Doing to same giving one more candy than the kid but this time return the max of the current value and 1 + the nieghboring value. 
+The goal here is to distribute candies to kids. Where each kid gets at least one but kids with a higher rating than their neighbors should get more. To do this first give one candy to each kid. Then from left to right, if the kid has more candy than the kid to their left, give them one more candy than the neighboring kid. Then go from right to left. Doing the same, giving one more candy than the kid but this time return the max of the current value and 1 + the neighboring value. 
 
 #### Approach:
 - create an output list with all 1s
@@ -1034,14 +1033,13 @@ height = [0,1,0,2,1,0,1,3,2,1,2,1]
 # Output
 6
 ```
-
 #### Intuition:
-The goal is to calculate the amount of water would settle if the list values were an elevation map. meaning [2, 1, 2] would create a small bowl when graphed. Calute the total water it can trap if it rains. To this first go from left to right, at each point, if it is not the new highest point, add the difference between itself and the current max. This will capture all the water between the starting point and the maximum point. To calculate the water  trapped after the max point point, do the same thing from right to the max point. 
+The goal is to calculate the amount of water that would settle if the list values were an elevation map. meaning [2, 1, 2] would create a small bowl when graphed. Calculate the total water it can trap if it rains. To this first go from left to right, at each point, if it is not the new highest point, add the difference between itself and the current max. This will capture all the water between the starting point and the maximum point. To calculate the water trapped after the max point, do the same thing from right to the max point. 
 
 #### Approach:
-- loop throught the list. 
-- if the value is <= the current max, add the difference between the maxheight and the value to the water count,
-- if the value is >= the current max add the water count to results, set it to zero and update the max
+- loop through the list. 
+- if the value is <= the current max, add the difference between the max height and the value to the water count,
+- if the value is >= the current max adds the water count to results, set it to zero and update the max
 - then loop from right to the max index, doing the same thing but in reverse
 
 
@@ -1104,11 +1102,11 @@ s = "III"
 ```
 
 #### Intuition:
-The goal here is to convert roman numerals to integers. It can be done by iterating through each numeral, adding its value to a variable if is greater than the next numeberal and subtracting from the varibale if it is smaller. 
+The goal here is to convert roman numerals to integers. It can be done by iterating through each numeral, adding its value to a variable if is greater than the next numeral and subtracting from the variable if it is smaller. 
 
 #### Approach:
 - create a dictionary mapping each roman numeral to its value
-- loop through each numeral, if it isnt the last, and has a value smaller than the next numeral subtract it from the result variable
+- loop through each numeral, if it isn’t the last, and has a value smaller than the next numeral subtract it from the result variable
 - otherwise add its value to the variable
 
 #### Code:
