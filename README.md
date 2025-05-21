@@ -742,10 +742,13 @@ var hIndex = function(citations) {
 ```
 
 #### Intuition:
-
+The goal is to implement a class that can add remove and display a random number from a list. The class initiates a value_to_index dictionary and a values list. Using these varibales allows me to shift the value to remove to the end of the list and use pop to remove as opposed to iterating ans shifting the list. The dictionary and list will not always stay in the same order. 
 
 #### Approach:
-
+- initiate a value_to_index dictionary and a values list.
+- if the command is to insert add it to the list and dict and return true if it is not in the list. return false if it is.
+- for del if it is not present return false, it it is find its location via the index in the dict and then swap it with the value at the end. then remove it using pop for the list and del for the index. 
+- return random element from list
 
 #### Code:
 ```python
@@ -786,6 +789,41 @@ class RandomizedSet:
         return random.choice(self.values)  # Get random element from list
 ```
 ```javascript
+class RandomizedSet {
+    constructor() {
+        this.list = [];
+        this.map = new Map();
+    }
+
+    search(val) {
+        return this.map.has(val);
+    }
+
+    insert(val) {
+        if (this.search(val)) return false;
+
+        this.list.push(val);
+        this.map.set(val, this.list.length - 1);
+        return true;
+    }
+
+    remove(val) {
+        if (!this.search(val)) return false;
+
+        const index = this.map.get(val);
+        this.list[index] = this.list[this.list.length - 1];
+        this.map.set(this.list[index], index);
+        this.list.pop();
+        this.map.delete(val);
+        return true;
+    }
+
+    getRandom() {
+        const randomIndex = Math.floor(Math.random() * this.list.length);
+        return this.list[randomIndex];
+    }
+}
+
 ```
 ## ＃134 - Product of Array Except Self 💥
 ### Input/Output
@@ -798,10 +836,13 @@ nums = [1,2,3,4]
 ```
 
 #### Intuition:
-
+The goal here is to return a list where each element is the product of all the all the other values besides itself. To do this in place, a product varible is created = to all the values mulitplied. For each output values instead of multplying the others together, just divide the product variable by the values. The last problem to overcome is the 0s. If more than 1 all values are 0, if 1 zero, the index with the 0 will be the only non-zero output value. 
 
 #### Approach:
-
+- count zeros and the calculate the total product of all varibales
+- if more than 1 zero return a zist of all 0s. 
+- if exactly one zero return a list of nearly all 0's, just the location of the 0 will be the product of all the others. 
+- (after taking care of 0 instances) return a list where each value is the product/ value. 
 
 #### Code:
 ```python
@@ -836,6 +877,24 @@ class Solution:
         
 ```
 ```javascript
+var productExceptSelf = function(nums) {
+    const n = nums.length;
+    const answer = new Array(n).fill(1);
+
+    let left = 1;
+    for (let i = 0; i < n; i++) {
+        answer[i] = left;
+        left *= nums[i];
+    }
+
+    let right = 1;
+    for (let i = n - 1; i >= 0; i--) {
+        answer[i] *= right;
+        right *= nums[i];
+    }
+
+    return answer;
+};
 ```
 ## ＃135 - Gas Station 💥
 ### Input/Output
@@ -849,10 +908,13 @@ cost = [3,4,5,1,2]
 ```
 
 #### Intuition:
-
+The goal here is to see if it is possible to traverse throught the list given the cost to move (cost) and the enegery you get (gas). To move to the next city there needs to bhe more gas than cost. If there is less gas than the cost across the whole list return -1. Otherwise it is possible, just have to find the string index. To do this loop through the index at each starting point. calulcate the gas at each step, if it ever ends under 0, move to the next possible starting point. There exists only one solution (provided). 
 
 #### Approach:
-
+- check if total gas > cost. If not return 0 - it is not possible.
+- Next create a start varibale (output) and a current_gas varible
+- to find the starting index, loop through each starting point and at each step, calulate the current gas(gas-cost)
+- if it ever end a step < 0, exit. The starting index will never go under 0
 
 #### Code:
 ```python
@@ -872,6 +934,20 @@ class Solution(object):
         return start
 ```
 ```javascript
+class Solution {
+    canCompleteCircuit(gas, cost) {
+        let total_tank = 0, curr_tank = 0, start_index = 0;
+        for (let i = 0; i < gas.length; i++) {
+            total_tank += gas[i] - cost[i];
+            curr_tank += gas[i] - cost[i];
+            if (curr_tank < 0) {
+                start_index = i + 1;
+                curr_tank = 0;
+            }
+        }
+        return total_tank >= 0 ? start_index : -1;
+    }
+}
 ```
 ## ＃136 - Candy 💥
 ### Input/Output
@@ -884,10 +960,13 @@ ratings = [1,0,2]
 ```
 
 #### Intuition:
-
+The goal here is to distribute candies to kids. Where each kid gets at least one but kids with a higher rating than their neighbors should get more. To do this first give one candy to each kid. Then from left to right, if the kid has more candy than th ekid to their left, give them one more candy than the nighboring kid. Then go from right to left. Doing to same giving one more candy than the kid but this time return the max of the current value and 1 + the nieghboring value. 
 
 #### Approach:
-
+- create an output list with all 1s
+- loop from left to right adding 1 + the left neighbor if the value is greater.
+- loop from right to left, update the output list to max(current value, 1 + right neighbor) if the kid has a higher value. 
+- return the sum 
 
 #### Code:
 ```python
@@ -907,6 +986,44 @@ class Solution:
         return sum(candies)
 ```
 ```javascript
+/**
+ * @param {number[]} ratings
+ * @return {number}
+ */
+var candy = function(ratings) {
+    const n = ratings.length;
+    let totalCandies = n;
+    let i = 1;
+
+    while (i < n) {
+        if (ratings[i] === ratings[i - 1]) {
+            i++;
+            continue;
+        }
+
+        let currentPeak = 0;
+        while (i < n && ratings[i] > ratings[i - 1]) {
+            currentPeak++;
+            totalCandies += currentPeak;
+            i++;
+        }
+
+        if (i === n) {
+            return totalCandies;
+        }
+
+        let currentValley = 0;
+        while (i < n && ratings[i] < ratings[i - 1]) {
+            currentValley++;
+            totalCandies += currentValley;
+            i++;
+        }
+
+        totalCandies -= Math.min(currentPeak, currentValley);
+    }
+
+    return totalCandies;    
+};
 ```
 ## ＃137 - Trapping Rain Water 💥
 ### Input/Output
@@ -919,9 +1036,13 @@ height = [0,1,0,2,1,0,1,3,2,1,2,1]
 ```
 
 #### Intuition:
-
+The goal is to calculate the amount of water would settle if the list values were an elevation map. meaning [2, 1, 2] would create a small bowl when graphed. Calute the total water it can trap if it rains. To this first go from left to right, at each point, if it is not the new highest point, add the difference between itself and the current max. This will capture all the water between the starting point and the maximum point. To calculate the water  trapped after the max point point, do the same thing from right to the max point. 
 
 #### Approach:
+- loop throught the list. 
+- if the value is <= the current max, add the difference between the maxheight and the value to the water count,
+- if the value is >= the current max add the water count to results, set it to zero and update the max
+- then loop from right to the max index, doing the same thing but in reverse
 
 
 #### Code:
@@ -952,6 +1073,25 @@ class Solution(object):
         return result
 ```
 ```javascript
+var trap = function(height) {
+        let i = 0;
+        let left_max = height[0];
+        let sum = 0;
+        let j = height.length - 1;
+        let right_max = height[j];
+        while (i < j) {
+            if (left_max <= right_max) {
+                sum += left_max - height[i];
+                i++;
+                left_max = Math.max(left_max, height[i]);
+            } else {
+                sum += right_max - height[j];
+                j--;
+                right_max = Math.max(right_max, height[j]);
+            }
+        }
+        return sum;
+    }
 ```
 ## ＃138 - Roman to Integer 💥
 ### Input/Output
@@ -964,10 +1104,12 @@ s = "III"
 ```
 
 #### Intuition:
-
+The goal here is to convert roman numerals to integers. It can be done by iterating through each numeral, adding its value to a variable if is greater than the next numeberal and subtracting from the varibale if it is smaller. 
 
 #### Approach:
-
+- create a dictionary mapping each roman numeral to its value
+- loop through each numeral, if it isnt the last, and has a value smaller than the next numeral subtract it from the result variable
+- otherwise add its value to the variable
 
 #### Code:
 ```python
@@ -991,6 +1133,28 @@ class Solution(object):
         return result
 ```
 ```javascript
+var romanToInt = function(s) {
+    let res = 0;
+    const roman = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+
+    for (let i = 0; i < s.length - 1; i++) {
+        if (roman[s[i]] < roman[s[i + 1]]) {
+            res -= roman[s[i]];
+        } else {
+            res += roman[s[i]];
+        }
+    }
+
+    return res + roman[s[s.length - 1]];    
+};
 ```
 ## ＃139 - Game of Life 💥
 #### Input/Output
