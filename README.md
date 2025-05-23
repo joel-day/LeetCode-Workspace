@@ -36,7 +36,7 @@ To see if the substring is in the string, Loop through each string. At each stag
 
 #### Approach:
 - Loop through the strings until you pass the last index of either one. 
-- Iterate through the values of the list. At each iteration move tot he next value in the main string.
+- Iterate through the values of the main string. At each iteration move to the next value in the main string.
 - only add one to i if it matches the value in the main string.
 - return true if i == len(s) means each letter was found in the string in order. 
 
