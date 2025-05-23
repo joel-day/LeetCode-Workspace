@@ -20,6 +20,39 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 - I prioritize understanding the logic over memorization of specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
+## ＃121 - Valid Palindrome💥
+### Input/Output
+```python
+# Input
+s = "A man, a plan, a canal: Panama"
+
+# Output
+True
+```
+
+#### Intuition:
+The goal here is to see if the string is a valid palendrome after removing non letters. To do this first clean the list and then test to see if it equals iself in reverse.
+
+#### Approach:
+- loop through the string joining only characters that are are alphanumeric
+- check if the cleaned list is equal to itself in reverse
+
+#### Code:
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        cleaned = ''.join(char for char in s if char.isalnum()).lower()
+        if cleaned == cleaned[::-1]:
+            return True
+        else:
+            return False
+```
+```javascript
+var isPalindrome = function(s) {
+            const cleaned = s.split('').filter(char => /[a-zA-Z0-9]/.test(char)).join('').toLowerCase();
+        return cleaned === cleaned.split('').reverse().join('');
+};
+```
 ## ＃122 - Merge Sorted Array 💥
 ### Input/Output
 ```python
