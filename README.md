@@ -20,6 +20,54 @@ Photo by <a href="https://unsplash.com/@olav_ahrens?utm_content=creditCopyText&u
 - I prioritize understanding the logic over memorization of specific functions. Instead of using LLM models like ChatGPT to help work through problems, I use them only to find isolated code or functions that can get me through each logical step of a problem. 
 
 - I am stronger with python, so after initially solving the problem with python, I then convert it to JavaScript.
+## ＃120 -  Is Subsequence💥
+### Input/Output
+```python
+# Input
+s = "abc"
+t = "ahbgdc"
+
+# Output
+true
+```
+
+#### Intuition:
+To see if the substring is in the string, Loop through each string. At each stage advance to the next value on the string but only advance to the next char in the substring if it matches the value in the string. If you get to the end of the substring before the end of the string return true. 
+
+#### Approach:
+- Loop through the strings until you pass the last index of either one. 
+- Iterate through the values of the list. At each iteration move tot he next value in the main string.
+- only add one to i if it matches the value in the main string.
+- return true if i == len(s) means each letter was found in the string in order. 
+
+#### Code:
+```python
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        i = 0
+        j = 0
+
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i+=1
+            j+=1
+        return i == len(s)
+```
+```javascript
+var isSubsequence = function(s, t) {
+        let i = 0;
+        let j = 0;
+
+        while (i < s.length && j < t.length) {
+            if (s[i] === t[j]) {
+                i++;
+            }
+            j++;
+        }
+
+        return i === s.length;
+};
+```
 ## ＃121 - Valid Palindrome💥
 ### Input/Output
 ```python
